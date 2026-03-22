@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="R3 Consultores - Asesoría Contable, Financiera y Tributaria en Colombia. Expertos en declaraciones de impuestos, consultoría especializada y World Office.">
+    <meta name="keywords" content="contadores, asesoría contable, tributaria, financiera, Colombia, IVA, renta, World Office">
+    <title>R3 Consultores | Asesoría Contable, Financiera y Tributaria</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'r3': {
+                            'gold': '#f6b034',
+                            'gold-dark': '#d99a1f',
+                            'slate': '#1e293b',
+                            'slate-light': '#334155',
+                            'bg': '#f8fafc',
+                            'card': '#ffffff',
+                            'text': '#111827',
+                            'border': '#d1d5db',
+                            'muted': '#9ca3af',
+                        }
+                    },
+                    fontFamily: { 'inter': ['Inter', 'system-ui', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+
+        /* Scroll-triggered reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+
+        /* Sticky pill nav */
+        .pill-nav {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .pill-nav a { transition: all 0.3s ease; }
+        .pill-nav a.active-pill {
+            background: #f6b034;
+            color: #1e293b;
+        }
+
+        /* Ghost button Squarespace-style */
+        .ghost-btn {
+            border: 1.5px solid;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            letter-spacing: 0.08em;
+        }
+        .ghost-btn:hover { transform: translateY(-2px); }
+        .ghost-btn-light { border-color: #ffffff; color: #ffffff; }
+        .ghost-btn-light:hover { background: #ffffff; color: #1e293b; }
+        .ghost-btn-dark { border-color: #1e293b; color: #1e293b; }
+        .ghost-btn-dark:hover { background: #1e293b; color: #ffffff; }
+        .ghost-btn-gold { border-color: #f6b034; color: #1e293b; background: #f6b034; }
+        .ghost-btn-gold:hover { background: #d99a1f; border-color: #d99a1f; box-shadow: 0 8px 30px rgba(246,176,52,0.3); }
+
+        /* Service card */
+        .service-card { transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(30,41,59,0.1); }
+        .service-card:hover .service-icon { background: #f6b034; color: #fff; }
+        .service-icon { transition: all 0.35s ease; }
+
+        /* WhatsApp */
+        @keyframes whatsappPulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+        }
+        .whatsapp-float { animation: whatsappPulse 2s infinite; transition: transform 0.2s ease; }
+        .whatsapp-float:hover { transform: scale(1.12); }
+
+        /* Mobile menu */
+        .mobile-menu { max-height:0; overflow:hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-menu.open { max-height: 500px; }
+
+        /* Navbar */
+        .nav-scrolled { background: rgba(255,255,255,0.97) !important; box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+
+        /* Feature section divider line */
+        .feature-line { width: 60px; height: 3px; background: #f6b034; }
+    </style>
+</head>
+<body class="bg-r3-bg text-r3-text antialiased">
+
+    <!-- ========== TOP NAVBAR ========== -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-500">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div class="flex items-center justify-between h-20">
+                <a href="#inicio" class="flex-shrink-0">
+                    <img id="nav-logo" src="assets/logo-amarillo.png" alt="R3 Consultores" class="h-10 md:h-12 w-auto transition-all duration-300">
+                </a>
+                <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+                    <a href="#inicio" class="text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors">Nosotros</a>
+                    <a href="#contacto" class="text-white/80 text-sm font-medium tracking-wide uppercase hover:text-white transition-colors">Contacto</a>
+                </nav>
+                <a href="#portal" id="nav-portal" class="hidden lg:inline-flex ghost-btn ghost-btn-light px-6 py-2.5 text-xs font-bold uppercase tracking-widest rounded-none">
+                    Portal Clientes
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5" aria-label="Menú">
+                    <span id="ham-1" class="w-6 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+                    <span id="ham-2" class="w-6 h-[2px] bg-white transition-all duration-300"></span>
+                    <span id="ham-3" class="w-4 h-[2px] bg-white transition-all duration-300 self-end"></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-r3-slate">
+            <nav class="px-6 py-6 space-y-1">
+                <a href="#inicio" class="mobile-link block py-3 text-white/80 font-medium tracking-wide uppercase text-sm hover:text-r3-gold transition-colors">Inicio</a>
+                <a href="#servicios" class="mobile-link block py-3 text-white/80 font-medium tracking-wide uppercase text-sm hover:text-r3-gold transition-colors">Servicios</a>
+                <a href="#nosotros" class="mobile-link block py-3 text-white/80 font-medium tracking-wide uppercase text-sm hover:text-r3-gold transition-colors">Nosotros</a>
+                <a href="#contacto" class="mobile-link block py-3 text-white/80 font-medium tracking-wide uppercase text-sm hover:text-r3-gold transition-colors">Contacto</a>
+                <a href="#portal" class="mobile-link block py-3 mt-2 text-r3-gold font-bold tracking-wide uppercase text-sm">Portal Clientes →</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== HERO SECTION (Squarespace-inspired: massive centered text) ========== -->
+    <section id="inicio" class="relative min-h-screen flex flex-col items-center justify-center bg-r3-slate overflow-hidden">
+        <!-- Subtle radial glow -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 40%, rgba(246,176,52,0.06) 0%, transparent 60%);"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto pt-20">
+            <!-- Small label -->
+            <p class="text-r3-gold text-sm sm:text-base font-medium tracking-widest uppercase mb-8 reveal">
+                Contadores Públicos
+            </p>
+
+            <!-- Massive headline (Squarespace-style) -->
+            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-extrabold text-white leading-[0.95] tracking-tight mb-10 reveal reveal-delay-1">
+                Expertos en<br>asesoría contable
+            </h1>
+
+            <!-- CTA Button -->
+            <div class="reveal reveal-delay-2 mb-16">
+                <a href="#contacto" id="btn-agendar-hero" class="ghost-btn ghost-btn-gold inline-flex items-center px-10 py-4 text-sm font-bold uppercase tracking-widest rounded-none">
+                    Agendar Cita
+                </a>
+            </div>
+        </div>
+
+        <!-- Pill Navigation Bar (Squarespace-style sticky sub-nav) -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 reveal reveal-delay-3">
+            <div class="pill-nav inline-flex items-center gap-1 px-2 py-2 rounded-full bg-white/10 border border-white/10">
+                <a href="#servicios" class="pill-link px-5 py-2.5 rounded-full text-white/70 text-xs font-semibold uppercase tracking-wider hover:text-white transition-all">Servicios</a>
+                <a href="#nosotros" class="pill-link px-5 py-2.5 rounded-full text-white/70 text-xs font-semibold uppercase tracking-wider hover:text-white transition-all">Nosotros</a>
+                <a href="#contacto" class="pill-link px-5 py-2.5 rounded-full text-white/70 text-xs font-semibold uppercase tracking-wider hover:text-white transition-all">Contacto</a>
+                <a href="#portal" class="pill-link active-pill px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider">Portal Clientes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICIOS SECTION (Light bg, large title left + grid) ========== -->
+    <section id="servicios" class="py-24 lg:py-36 bg-r3-bg">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <!-- Section header row -->
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-20 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-r3-text leading-tight">
+                        Soluciones contables<br>que impulsan su negocio
+                    </h2>
+                </div>
+                <div class="mt-6 lg:mt-0">
+                    <a href="#contacto" class="ghost-btn ghost-btn-dark inline-flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
+                        Consultar ahora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- 1 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Asesoría Contable, Financiera y Tributaria</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Orientación experta para optimizar la gestión financiera y cumplimiento tributario.</p>
+                </div>
+                <!-- 2 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-1">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Declaraciones de Impuestos</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">IVA, Renta y Retenciones en la fuente con precisión y oportunidad.</p>
+                </div>
+                <!-- 3 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-2">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Información Exógena</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Elaboración y transmisión ante la DIAN cumpliendo todos los requisitos normativos.</p>
+                </div>
+                <!-- 4 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-3">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Consultoría Especializada</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Soluciones a medida para desafíos contables y financieros de su negocio.</p>
+                </div>
+                <!-- 5 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Outsourcing Contable</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Llevanza integral de contabilidades para que usted se enfoque en crecer.</p>
+                </div>
+                <!-- 6 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-1">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Trámites Legales y Comerciales</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">RUT, Cámara de Comercio y gestiones legales empresariales.</p>
+                </div>
+                <!-- 7 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-2">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Estructuración de Empresas</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Organización empresarial para optimizar procesos y normatividad.</p>
+                </div>
+                <!-- 8 -->
+                <div class="service-card bg-r3-card rounded-2xl p-7 border border-r3-border/40 reveal reveal-delay-3">
+                    <div class="service-icon w-12 h-12 rounded-xl bg-r3-gold/10 text-r3-gold flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold text-r3-text mb-2">Software Contable World Office</h3>
+                    <p class="text-r3-muted text-sm leading-relaxed">Implementación y capacitación en el software contable líder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NOSOTROS — 50/50 Split (Squarespace-style dark section) ========== -->
+    <section id="nosotros" class="bg-r3-slate">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
+                <!-- Left: text -->
+                <div class="flex flex-col justify-center px-6 lg:px-16 xl:px-24 py-24 lg:py-36 reveal">
+                    <div class="feature-line mb-8"></div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-8">
+                        Confíe su gestión contable a profesionales
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">
+                        Somos una firma de contadores públicos en Colombia con experiencia en soluciones contables, tributarias y financieras. Respaldamos a empresas y personas naturales con un servicio integral y personalizado.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="ghost-btn ghost-btn-gold inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
+                            Agendar Cita
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="#portal" class="ghost-btn ghost-btn-light inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
+                            Portal Clientes
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Right: feature cards stacked -->
+                <div class="flex flex-col justify-center px-6 lg:px-16 xl:px-20 py-16 lg:py-36 gap-6 reveal reveal-delay-1">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <h3 class="text-r3-gold font-bold text-lg mb-2">Atención Personalizada</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Cada cliente recibe un acompañamiento directo con un contador experto asignado a su caso.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <h3 class="text-r3-gold font-bold text-lg mb-2">Expertos Certificados</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Nuestro equipo cuenta con contadores públicos certificados y con amplia experiencia en normatividad colombiana.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <h3 class="text-r3-gold font-bold text-lg mb-2">Especialistas World Office</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Implementamos y capacitamos en World Office, optimizando su operación contable con tecnología líder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========== AGENDAR CITA SECTION ========== -->
+    <section id="agendar" class="bg-r3-bg py-24 lg:py-36">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-r3-slate leading-tight mb-4">
+                        Agenda tu cita de Valoración/Consultoría
+                    </h2>
+                    <p class="text-r3-muted text-lg">
+                        Déjenos sus datos y le confirmaremos su espacio con un experto.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-r3-border/30 reveal reveal-delay-1 relative">
+                    <div id="form-success" class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex flex-col items-center justify-center rounded-2xl text-center px-6">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-r3-slate mb-2">¡Solicitud Enviada!</h3>
+                        <p class="text-r3-muted">Nos pondremos en contacto pronto para confirmar su cita.</p>
+                        <button onclick="document.getElementById('form-success').classList.add('hidden'); document.getElementById('agendar-form').reset();" class="mt-6 text-r3-gold font-bold uppercase text-sm tracking-wider">Enviar nueva solicitud</button>
+                    </div>
+
+                    <form id="agendar-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-r3-slate mb-2">Nombre completo *</label>
+                                <input type="text" id="form-nombre" required class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-r3-slate mb-2">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="form-telefono" required class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-r3-slate mb-2">Correo electrónico *</label>
+                                <input type="email" id="form-correo" required class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-r3-slate mb-2">Nombre de la Empresa</label>
+                                <input type="text" id="form-empresa" class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50" placeholder="Opcional">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-r3-slate mb-2">Motivo de la consulta *</label>
+                            <textarea id="form-motivo" required rows="4" class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50 resize-none" placeholder="Ej: Necesito asesoría sobre el IVA y mi declaración de renta..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-r3-slate mb-2">Fecha y hora propuesta *</label>
+                            <input type="datetime-local" id="form-fecha" required class="w-full px-4 py-3 rounded-lg border border-r3-border focus:border-r3-gold focus:ring-2 focus:ring-r3-gold/20 outline-none transition-all bg-r3-bg/50">
+                        </div>
+
+                        <!-- Payment disabled placeholder -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-600 text-sm">Pasarela de Pago (En configuración)</p>
+                                    <p class="text-xs text-gray-500">Valor de la consultoría: $150.000 COP</p>
+                                </div>
+                            </div>
+                            <button type="button" disabled class="px-5 py-2.5 bg-gray-200 text-gray-400 font-bold uppercase tracking-wider text-xs rounded-lg cursor-not-allowed">
+                                Pago temporalmente inhabilitado
+                            </button>
+                        </div>
+                        <p class="text-center text-r3-gold-dark font-medium text-sm mt-2">✨ Agende su cita de valoración GRATIS por hoy ✨</p>
+
+                        <button id="form-submit-btn" type="submit" class="w-full ghost-btn ghost-btn-gold py-4 text-sm font-bold uppercase tracking-widest rounded-none mt-4 flex items-center justify-center gap-2 transition-all">
+                            <span>Enviar Solicitud</span>
+                            <svg class="w-4 h-4 hidden" id="form-spinner" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.75V6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1266 6.87347L16.0659 7.93413" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.25 12L17.75 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17.1266 17.1265L16.0659 16.0659" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17.75V19.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.9342 16.0659L6.87354 17.1265" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.25 12L4.75 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.9342 7.93413L6.87354 6.87347" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA BAND (Squarespace-style full-width CTA) ========== -->
+    <section class="bg-r3-gold py-20 lg:py-28">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10 text-center reveal">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-r3-slate leading-tight mb-6">
+                ¿Listo para optimizar su<br>gestión contable?
+            </h2>
+            <p class="text-r3-slate/70 text-lg mb-10 max-w-xl mx-auto">
+                Agende una consulta gratuita con nuestros expertos y descubra cómo podemos ayudarle.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573004046628?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener noreferrer" class="ghost-btn ghost-btn-dark inline-flex items-center justify-center gap-3 px-10 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
+                    Agendar por WhatsApp
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="mailto:info@r3consultores.com" class="ghost-btn inline-flex items-center justify-center gap-3 px-10 py-4 text-xs font-bold uppercase tracking-widest rounded-none border-r3-slate/30 text-r3-slate hover:bg-r3-slate hover:text-white">
+                    Escribir Correo
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER (Squarespace-style minimal) ========== -->
+    <footer id="contacto" class="bg-r3-slate border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <img src="assets/logo-amarillo.png" alt="R3 Consultores" class="h-10 w-auto mb-5">
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+                        Firma de contadores públicos especializados en soluciones contables, tributarias y financieras para empresas en Colombia.
+                    </p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Navegación</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="text-gray-500 hover:text-white transition-colors text-sm">Inicio</a></li>
+                        <li><a href="#servicios" class="text-gray-500 hover:text-white transition-colors text-sm">Servicios</a></li>
+                        <li><a href="#nosotros" class="text-gray-500 hover:text-white transition-colors text-sm">Nosotros</a></li>
+                        <li><a href="#portal" class="text-gray-500 hover:text-white transition-colors text-sm">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-5">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li><a href="tel:+573004046628" class="text-gray-500 hover:text-white transition-colors text-sm">+57 300 404 6628</a></li>
+                        <li><a href="mailto:info@r3consultores.com" class="text-gray-500 hover:text-white transition-colors text-sm">info@r3consultores.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 mt-14 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-xs">&copy; 2026 R3 Consultores. Todos los derechos reservados.</p>
+                <p class="text-gray-600 text-xs">Colombia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== WHATSAPP FLOTANTE ========== -->
+    <a href="https://wa.me/573004046628?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" id="whatsapp-btn" class="whatsapp-float fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl" aria-label="Contactar por WhatsApp">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <!-- ========== MAIN APP LOGIC ========== -->
+    <script src="app.js"></script>
+
+    <!-- ========== CHATBOT AGENTE DE IA ========== -->
+    <div id="ai-chat-widget" class="fixed bottom-24 right-6 z-50 flex flex-col items-end pointer-events-none">
+        <!-- Chat Panel -->
+        <div id="ai-chat-panel" class="bg-white w-[350px] shadow-2xl rounded-2xl overflow-hidden mb-4 border border-r3-border/30 transition-all duration-300 transform scale-95 opacity-0 pointer-events-auto h-[500px] flex flex-col" style="display: none;">
+            <div class="bg-r3-slate p-4 flex items-center justify-between text-white border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-r3-gold flex items-center justify-center text-r3-slate font-bold shadow-inner">R3</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Asistente Virtual R3</h4>
+                        <p class="text-[11px] text-white/70">IA de Agendamiento</p>
+                    </div>
+                </div>
+                <button id="close-chat-btn" class="text-white/70 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-r3-bg/50 custom-scrollbar">
+                <!-- Initial Message -->
+                <div class="flex flex-col items-start max-w-[85%]">
+                    <div class="bg-white border border-gray-100 p-3.5 rounded-2xl rounded-tl-sm shadow-sm text-sm text-r3-text leading-relaxed">
+                        ¡Hola! Soy el asistente de agendamiento de R3 Consultores. ¿En qué puedo ayudarte hoy? ¿Te gustaría agendar una cita de valoración?
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-gray-100 flex items-center gap-2 shadow-inner">
+                <input type="text" id="chat-input" class="flex-1 px-4 py-2.5 text-sm border border-gray-200 rounded-full focus:outline-none focus:border-r3-gold focus:ring-1 focus:ring-r3-gold transition-all bg-gray-50" placeholder="Escribe tu mensaje...">
+                <button id="send-chat-btn" class="w-10 h-10 rounded-full bg-r3-gold text-r3-slate flex items-center justify-center hover:bg-r3-gold-dark transition-colors shadow-md">
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Chat Button -->
+        <button id="toggle-chat-btn" class="w-16 h-16 bg-r3-slate text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-r3-slate-light transition-all transform hover:scale-105 pointer-events-auto border-2 border-r3-gold relative group">
+            <span class="absolute -top-1 -right-1 flex h-4 w-4">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-r3-gold opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-4 w-4 bg-r3-gold border-2 border-r3-slate"></span>
+            </span>
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
+    <!-- ========== SUPABASE & CHATBOT LOGIC ========== -->
+
+</body>
+</html>
