@@ -103,9 +103,11 @@
         
         // Solo inicializar si la clave fue provista
         const supabaseUrlValid = SUPABASE_URL.startsWith('http');
-        const supabase = (typeof supabase !== 'undefined' && supabaseUrlValid) 
-            ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) 
-            : null;
+        let supabaseClient = null;
+        if (typeof window.supabase !== 'undefined' && supabaseUrlValid) 
+            {
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
 
         document.getElementById('agendar-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -132,13 +134,13 @@
             };
 
             try {
-                if (!supabase || SUPABASE_ANON_KEY === 'TU_ANON_KEY_AQUI') {
+                if (!supabaseClient || SUPABASE_ANON_KEY === 'TU_ANON_KEY_AQUI') {
                     // Simular retraso de red si no hay API Key real
                     await new Promise(r => setTimeout(r, 1500));
                     console.log('Modo de Simulación: No Supabase Key provided. Form submitted sucessfully visually.');
                 } else {
                     // Inserción Real en Supabase
-                    const { data: cliente, error: errCliente } = await supabase
+                    const { data: cliente, error: errCliente } = await supabaseClient
                         .from('clientes')
                         .insert([datosCliente])
                         .select()
@@ -146,7 +148,7 @@
                         
                     if (errCliente) throw errCliente;
 
-                    const { error: errCita } = await supabase
+                    const { error: errCita } = await supabaseClient
                         .from('citas')
                         .insert([
                             { ...datosCita, cliente_id: cliente.id }
