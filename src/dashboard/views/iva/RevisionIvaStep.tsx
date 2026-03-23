@@ -398,9 +398,9 @@ const RevisionIvaStep: React.FC<RevisionIvaStepProps> = ({ hideControls = false 
     };
 
     const handleGenerateReview = () => {
-        const { files: { iva_auxiliar: auxiliar, iva_dian: dian, iva_ventas: ventas, iva_compras }, incomeAccountVatClassification } = appState;
-        if (!auxiliar || !dian || !ventas || !iva_compras) {
-            showError("Asegúrese de que los archivos 'Auxiliar', 'Ventas', 'Compras' y 'DIAN' para IVA estén cargados.");
+        const { files: { iva_auxiliar: auxiliar, iva_dian: dian }, incomeAccountVatClassification } = appState;
+        if (!auxiliar || !dian) {
+            showError("Asegúrese de que los archivos 'Auxiliar' y 'DIAN' para IVA estén cargados.");
             return;
         }
         showLoading("Generando revisión de IVA...");
@@ -430,6 +430,81 @@ const RevisionIvaStep: React.FC<RevisionIvaStepProps> = ({ hideControls = false 
                     }
                 });
 
+                // --- SYNTHESIZE VENTAS AND COMPRAS ---
+                // Similar to how handleGlobalAudit handles it, we synthesize from auxiliar
+                const synthesizedVentas: VentasComprasData[] = [];
+                const synthesizedCompras: VentasComprasData[] = [];
+                
+                // Track documents to avoid duplication (group by DocNum)
+                const docMap = new Map<string, VentasComprasData>();
+                
+                auxiliar.forEach(mov => {
+                    const normId = getDocKey(mov.DocNum);
+                    if (!normId || normId === 'SIN-ID') return;
+                
+                    const accountStr = mov.Cuenta || '';
+                    const mainAccount = accountStr.split(' ')[0];
+                
+                    // Identify if income or purchase
+                    const isIncome = mainAccount.startsWith('4');
+                    // Consider purchases 14, 5, 6, 7 but exclude 5115 (taxes) as per new rules? The requirements said derived directly.
+                    const isPurchase = mainAccount.startsWith('14') || mainAccount.startsWith('5') || mainAccount.startsWith('6') || mainAccount.startsWith('7');
+                
+                    if (!isIncome && !isPurchase) return;
+                
+                    if (!docMap.has(normId)) {
+                        docMap.set(normId, {
+                            id: normId,
+                            NIT: String(mov.Tercero_ID || ''),
+                            Cliente: String(mov.Tercero_Info || ''),
+                            Documento: String(mov.DocNum),
+                            Fecha: String(mov.Fecha),
+                            FechaObj: null,
+                            VentaNeta: 0,
+                            IVA: 0,
+                            Dias: '0',
+                            Descuento: 0,
+                            RetIVA: 0,
+                            RetICA: 0,
+                            RetFuente: 0,
+                            ValorTotal: 0
+                        });
+                    }
+                
+                    const docData = docMap.get(normId)!;
+                    
+                    if (isIncome) {
+                        // Income: Base is Credit - Debit. Account 2408 indicates sales tax.
+                        if (mainAccount === '2408' || mainAccount.startsWith('2408')) {
+                            docData.IVA += (Number(mov.Creditos) || 0) - (Number(mov.Debitos) || 0);
+                        } else {
+                            docData.VentaNeta += (Number(mov.Creditos) || 0) - (Number(mov.Debitos) || 0);
+                        }
+                    } else if (isPurchase) {
+                        // Purchase: Base is Debit - Credit. Account 2408 indicates purchase tax.
+                        if (mainAccount === '2408' || mainAccount.startsWith('2408')) {
+                            docData.IVA += (Number(mov.Debitos) || 0) - (Number(mov.Creditos) || 0);
+                        } else {
+                            docData.VentaNeta += (Number(mov.Debitos) || 0) - (Number(mov.Creditos) || 0);
+                        }
+                    }
+                });
+                
+                // Distribute into synthesized arrays
+                docMap.forEach((data, docId) => {
+                    // Look at the auxiliar map to classify it again properly based on actual accounts used
+                    const movs = auxiliarMapByDoc.get(docId) || [];
+                    const hasIncomeAccount = movs.some(m => (m.Cuenta || '').startsWith('4'));
+                    if (hasIncomeAccount) {
+                        synthesizedVentas.push(data);
+                    } else {
+                        synthesizedCompras.push(data);
+                    }
+                });
+                
+                const ventas = synthesizedVentas;
+                const compras = synthesizedCompras;
+
                 ventas.forEach(venta => {
                     const docKey = getDocKey(venta.Documento);
                     if (!docKey) return;
@@ -445,7 +520,7 @@ const RevisionIvaStep: React.FC<RevisionIvaStepProps> = ({ hideControls = false 
                     } else {
                         baseNoGravada = venta.VentaNeta;
                     }
-                    woDocsMap.set(docKey, { baseGravada, baseNoGravada, total: venta.VentaNeta, originalDoc: venta });
+                    woDocsMap.set(docKey, { baseGravada, baseNoGravada, total: venta.VentaNeta + venta.IVA, originalDoc: venta });
                 });
 
                 const dianDocsMap = new Map<string, { baseGravada: number; baseNoGravada: number; total: number; originalDoc: DianData }>();
@@ -502,7 +577,7 @@ const RevisionIvaStep: React.FC<RevisionIvaStepProps> = ({ hideControls = false 
                         });
                     } else if (!woDoc && dianDoc) {
                         hallazgosClasificacion.push({
-                            docNum: dianDoc.originalDoc.DocumentoDIAN, nit: dianDoc.originalDoc.NITReceptor, nombre: dianDoc.originalDoc.NombreReceptor, fecha: dianDoc.originalDoc.Fecha,
+                            docNum: dianDoc.originalDoc.DocumentoDIAN, nit: String(dianDoc.originalDoc.NITReceptor), nombre: String(dianDoc.originalDoc.NombreReceptor), fecha: dianDoc.originalDoc.Fecha,
                             baseGravadaWo: 0, baseNoGravadaWo: 0, baseGravadaDian: dianDoc.baseGravada, baseNoGravadaDian: dianDoc.baseNoGravada,
                             diferenciaGravado: -dianDoc.baseGravada, diferenciaNoGravado: -dianDoc.baseNoGravada, diferenciaTotal: -dianDoc.total, observacion: 'Faltante en WO'
                         });
@@ -520,10 +595,8 @@ const RevisionIvaStep: React.FC<RevisionIvaStepProps> = ({ hideControls = false 
 
                 const getDianCompraNit = (row: DianData) => normalizeText(row.TipoDeDocumento).includes('documento soporte') ? String(row.NITReceptor).trim() : String(row.NITEMISOR).trim();
 
-                const compras = iva_compras;
-
-                const resultadoIngresos = compareDocuments(ventas!, dianIngresos, 'VentaNeta', 'Base', d => String(d.NITReceptor).trim());
-                const resultadoIvaGenerado = compareDocuments(ventas!, dianIngresos, 'IVA', 'IVA', d => String(d.NITReceptor).trim());
+                const resultadoIngresos = compareDocuments(ventas, dianIngresos, 'VentaNeta', 'Base', d => String(d.NITReceptor).trim());
+                const resultadoIvaGenerado = compareDocuments(ventas, dianIngresos, 'IVA', 'IVA', d => String(d.NITReceptor).trim());
                 const resultadoCompras = compareDocuments(compras, dianCompras, 'VentaNeta', 'Base', getDianCompraNit);
                 const resultadoIvaDescontable = compareDocuments(compras, dianCompras, 'IVA', 'IVA', getDianCompraNit);
 

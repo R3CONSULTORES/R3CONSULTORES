@@ -151,7 +151,7 @@ const AccordionCard: React.FC<{
 };
 
 export const AuditoriaView: React.FC<AuditoriaViewProps> = ({ files }) => {
-    const { iva_auxiliar, iva_dian, iva_ventas } = files;
+    const { iva_auxiliar, iva_dian } = files;
     const context = useContext(AppContext);
     const incomeClassifications = context?.appState.incomeAccountVatClassification;
 
@@ -201,12 +201,7 @@ export const AuditoriaView: React.FC<AuditoriaViewProps> = ({ files }) => {
         const findings: CrossCheckFinding[] = [];
         const TOLERANCE = 100;
 
-        // 0. Pre-compute Valid Sales Documents (Whitelist)
-        // Esto evita falsos positivos con Recibos de Caja (RC), Comprobantes (CC), etc.
-        const validSalesDocs = new Set<string>();
-        if (iva_ventas) {
-            iva_ventas.forEach(v => validSalesDocs.add(getNormalizedId(v.Documento)));
-        }
+        // 0. Pre-compute Valid Sales Documents (Whitelist) removed as we no longer use iva_ventas
 
         // A. Build DIAN Map (Normalized ID -> Values)
         const dianMap = new Map<string, { taxed: number, nonTaxed: number, total: number, originalId: string }>();
@@ -243,12 +238,10 @@ export const AuditoriaView: React.FC<AuditoriaViewProps> = ({ files }) => {
                 if (normId === 'SIN-ID') return;
 
                 // --- LOGIC FIX: FILTER INTERNAL DOCUMENTS ---
-                // Solo auditamos si está en el reporte de ventas oficial o parece un documento electrónico.
                 const isElectronicDoc = /^(FE|NC|ND|FV|FAC|SETT)/i.test(mov.DocNum); 
-                const isInSalesReport = validSalesDocs.has(normId);
 
-                // Si es un documento interno (RC, CC, etc.) y no está en ventas, lo saltamos.
-                if (!isInSalesReport && !isElectronicDoc) {
+                // Si es un documento interno (RC, CC, etc.), lo saltamos.
+                if (!isElectronicDoc) {
                     return; 
                 }
                 // ---------------------------------------------
@@ -363,7 +356,7 @@ export const AuditoriaView: React.FC<AuditoriaViewProps> = ({ files }) => {
 
         return findings.sort((a, b) => Math.abs(b.diffTotal) - Math.abs(a.diffTotal));
 
-    }, [iva_auxiliar, iva_dian, iva_ventas, incomeClassifications]);
+    }, [iva_auxiliar, iva_dian, incomeClassifications]);
 
 
     // --- 3. AUDITORÍA DE TASAS IMPLÍCITAS ---

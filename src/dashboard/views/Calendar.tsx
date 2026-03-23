@@ -193,27 +193,29 @@ const Calendar: React.FC = () => {
     const renderDays = () => {
         const days = [];
         for (let i = 0; i < firstDayOfMonth; i++) {
-            days.push(<div key={`empty-${i}`} className="border-t border-l bg-slate-50"></div>);
+            days.push(<div key={`empty-${i}`} className="bg-slate-50/50"></div>);
         }
         for (let day = 1; day <= daysInMonth; day++) {
             const dayTasks = tasksByDay.get(day) || [];
             const isToday = isCurrentMonth && day === today.getDate();
             days.push(
-                <div key={day} className="border-t border-l p-1 relative min-h-[120px] flex flex-col group hover:bg-slate-50 transition-colors cursor-pointer" onClick={() => handleDayClick(day)}>
-                    <span className={`text-sm font-semibold self-start ${isToday ? 'bg-slate-800 text-white rounded-full w-6 h-6 flex items-center justify-center' : 'text-slate-700'}`}>{day}</span>
-                    <div className="mt-1 space-y-1 flex-grow">
-                        {dayTasks.slice(0, 3).map(task => (
-                            <div key={task.id} onClick={(e) => { e.stopPropagation(); handleEditTask(task); }} className={`flex items-center text-xs rounded px-2 py-0.5 cursor-pointer ${statusColors[task.status].bg} ${statusColors[task.status].text} ${statusColors[task.status].border}`} title={task.title}>
-                                <span className="truncate flex-1">{task.title}</span>
+                <div key={day} className="bg-white p-2 relative min-h-[130px] flex flex-col group hover:bg-slate-50 transition-colors cursor-pointer" onClick={() => handleDayClick(day)}>
+                    <span className={`text-sm font-semibold self-start mb-1 ${isToday ? 'bg-amber-500 text-white rounded-full w-7 h-7 flex items-center justify-center shadow-md drop-shadow-sm' : 'text-slate-700 ml-1'}`}>{day}</span>
+                    <div className="mt-1 space-y-1.5 flex-grow">
+                        {dayTasks.slice(0, 3).map(task => {
+                            const borderClass = statusColors[task.status].border.replace('border-l-4', 'border-l-2');
+                            return (
+                            <div key={task.id} onClick={(e) => { e.stopPropagation(); handleEditTask(task); }} className={`flex items-center text-xs rounded-md px-2 py-1 opacity-90 transition-all hover:scale-[1.02] hover:opacity-100 cursor-pointer ${statusColors[task.status].bg} ${statusColors[task.status].text} ${borderClass} shadow-sm`} title={task.title}>
+                                <span className="truncate flex-1 font-medium">{task.title}</span>
                                 {task.driveLink ? (
                                     <a href={task.driveLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} title="Abrir en Google Drive" className="ml-1 p-0.5 rounded-full hover:bg-black/10 flex-shrink-0">
                                         <DriveIcon className="w-3 h-3" />
                                     </a>
                                 ) : null}
                             </div>
-                        ))}
+                        )})}
                         {dayTasks.length > 3 && (
-                            <button onClick={(e) => { e.stopPropagation(); setDayModal({ day, tasks: dayTasks }); }} className="text-xs text-blue-600 font-semibold hover:underline w-full text-left mt-1">
+                            <button onClick={(e) => { e.stopPropagation(); setDayModal({ day, tasks: dayTasks }); }} className="text-xs text-blue-600 font-semibold hover:underline w-full text-left mt-1 pl-1">
                                 Ver {dayTasks.length - 3} más...
                             </button>
                         )}
@@ -283,10 +285,10 @@ const Calendar: React.FC = () => {
                         </button>
                     </div>
 
-                    <div className="grid grid-cols-7 text-center font-semibold text-slate-600 text-sm pb-2 border-b">
+                    <div className="grid grid-cols-7 text-center font-semibold text-slate-600 text-sm pb-3">
                         <div>Do</div><div>Lu</div><div>Ma</div><div>Mi</div><div>Ju</div><div>Vi</div><div>Sá</div>
                     </div>
-                    <div className="grid grid-cols-7 border-b border-r">
+                    <div className="grid grid-cols-7 gap-[1px] bg-slate-200 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                         {renderDays()}
                     </div>
                 </div>

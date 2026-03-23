@@ -1,7 +1,7 @@
 
 export type Module = 'dashboard' | 'contable' | 'iva' | 'retenciones' | 'informe' | 'clients' | 'tasks' | 'calendar' | 'historial' | 'proyecciones-iva' | 'proyecciones-portfolio' | 'configuracion';
 
-export type FileType = 'auxiliar' | 'compras' | 'ventas' | 'dian' | 'validacion' | 'retencion_base' | 'iva_auxiliar' | 'iva_dian' | 'iva_ventas' | 'iva_compras' | 'retencion_auxiliar' | 'retencion_compras' | 'retencion_ventas';
+export type FileType = 'auxiliar' | 'compras' | 'ventas' | 'dian' | 'validacion' | 'retencion_base' | 'iva_auxiliar' | 'iva_dian' | 'retencion_auxiliar' | 'retencion_compras' | 'retencion_ventas';
 
 export type FileStatus = 'pending' | 'loading' | 'success' | 'error';
 
@@ -552,8 +552,6 @@ export interface AppState {
         retencion_base: RetencionBaseData[] | null;
         iva_auxiliar: AuxiliarData[] | null;
         iva_dian: DianData[] | null;
-        iva_ventas: VentasComprasData[] | null;
-        iva_compras: VentasComprasData[] | null;
         retencion_auxiliar: AuxiliarData[] | null;
         retencion_compras: VentasComprasData[] | null;
         retencion_ventas: VentasComprasData[] | null;

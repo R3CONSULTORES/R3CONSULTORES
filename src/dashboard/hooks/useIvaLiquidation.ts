@@ -17,7 +17,7 @@ import type {
     DianDocumentDetail, 
     FileStatus 
 } from '@/dashboard/types';
-import { parseExcelFile, processAuxiliar, processDian, processVentas, processCompras } from '@/dashboard/utils/parsing';
+import { parseExcelFile, processAuxiliar, processDian } from '@/dashboard/utils/parsing';
 import { isDevolucionesComprasAccountFuzzy, normalizeTextForSearch } from '@/dashboard/views/iva/ivaUtils';
 
 // Helper local para normalización dentro del hook
@@ -69,7 +69,7 @@ export const useIvaLiquidation = () => {
 
     // --- 0. CALCULOS PRELIMINARES ---
     // Calculamos esto al inicio para usarlo en el estado inicial del panel
-    const allBaseFilesLoaded = !!(files.iva_auxiliar && files.iva_dian && files.iva_ventas && files.iva_compras);
+    const allBaseFilesLoaded = !!(files.iva_auxiliar && files.iva_dian);
 
     // --- 1. ESTADOS LOCALES DE UI Y CONFIGURACIÓN ---
     const [modal, setModal] = useState<'none' | 'ingresos'>('none');
@@ -143,7 +143,7 @@ export const useIvaLiquidation = () => {
     };
 
     const handleFileChange = async (fileType: FileType, file: File) => {
-        if (fileType !== 'iva_auxiliar' && fileType !== 'iva_dian' && fileType !== 'iva_ventas' && fileType !== 'iva_compras') return;
+        if (fileType !== 'iva_auxiliar' && fileType !== 'iva_dian') return;
 
         updateAppState({
             fileUploadStatus: {
@@ -162,14 +162,6 @@ export const useIvaLiquidation = () => {
                 const auxResult = processAuxiliar(rawData, appState.allNits);
                 processedData = auxResult.data;
                 updatePayload.allNits = auxResult.nits;
-            } else if (fileType === 'iva_ventas') {
-                 const ventasResult = processVentas(rawData, appState.allNits);
-                 processedData = ventasResult.data;
-                 updatePayload.allNits = ventasResult.nits;
-            } else if (fileType === 'iva_compras') {
-                const comprasResult = processCompras(rawData, appState.allNits);
-                processedData = comprasResult.data;
-                updatePayload.allNits = comprasResult.nits;
            } else { // iva_dian
                 const dianResult = processDian(rawData, appState.allNits);
                 processedData = dianResult.data;
@@ -216,10 +208,10 @@ export const useIvaLiquidation = () => {
     };
 
     const handleGenerate = () => {
-        const { iva_auxiliar, iva_dian, iva_ventas, iva_compras } = appState.files;
+        const { iva_auxiliar, iva_dian } = appState.files;
         
-        if (!iva_auxiliar || !iva_dian || !iva_ventas || !iva_compras) {
-            showError("Asegúrese de que los archivos 'Auxiliar', 'Ventas', 'Compras' y 'DIAN' para IVA estén cargados.");
+        if (!iva_auxiliar || !iva_dian) {
+            showError("Asegúrese de que los archivos 'Auxiliar' y 'DIAN' para IVA estén cargados.");
             return;
         }
         
@@ -265,64 +257,64 @@ export const useIvaLiquidation = () => {
                 
                 const allDocuments: PopulatedDoc[] = [];
 
-                // Process Ventas
-                files.iva_ventas!.forEach(venta => {
-                    const docKey = normalizeDocKey(venta.Documento);
-                    const movimientos = auxiliarMapByDoc.get(docKey) || [];
-                    const incomeMov = movimientos.find(m => m.Cuenta.startsWith('4'));
-                    const cuentaCode = incomeMov ? incomeMov.Cuenta.split(' ')[0] : '4_NO_ASIGNADA';
-                    const cuentaName = incomeMov ? incomeMov.Cuenta.substring(cuentaCode.length).trim() : 'Ingreso sin cuenta en Auxiliar';
-                    
-                    const isReturnAccount = cuentaCode.startsWith('4175');
-                    const isCreditNote = normalizeTextForSearch(venta.Documento).includes('nc');
-                    const absoluteVentaNeta = Math.abs(venta.VentaNeta);
-                    const balance = (isReturnAccount || isCreditNote) ? -absoluteVentaNeta : absoluteVentaNeta;
-
-                    const txKey = `${cuentaCode}-${venta.Documento}-${balance}`;
-
-                    allDocuments.push({
-                        cuenta: cuentaCode,
-                        nombre: cuentaName,
-                        valor: balance,
-                        isIncome: true,
-                        docDetail: { docNum: venta.Documento, nota: `Venta a ${venta.Cliente}`, valor: balance, key: txKey }
-                    });
-                });
-
-                // Process Compras
-                const saleDocKeys = new Set(files.iva_ventas!.map(v => normalizeDocKey(v.Documento)));
-                const processedPurchaseDocs = new Set<string>();
+                const processedDocs = new Set<string>();
 
                 files.iva_auxiliar!.forEach(row => {
                     const docKey = normalizeDocKey(row.DocNum);
-                    if (!docKey || saleDocKeys.has(docKey) || processedPurchaseDocs.has(docKey)) return;
+                    if (!docKey || processedDocs.has(docKey)) return;
 
-                    const code = row.Cuenta?.split(' ')[0] || '';
-                    if (['14', '5', '6', '7'].some(p => code.startsWith(p))) {
-                        const movsForDoc = auxiliarMapByDoc.get(docKey) || [];
-                        let baseCompra = movsForDoc.reduce((sum, mov) => {
-                            if (['14', '5', '6', '7'].some(p => mov.Cuenta.startsWith(p))) {
-                                return sum + mov.Debitos - mov.Creditos;
-                            }
-                            return sum;
-                        }, 0);
+                    const movsForDoc = auxiliarMapByDoc.get(docKey) || [];
+                    
+                    // Calcular base de ingresos (Cuentas 4)
+                    let baseIngreso = 0;
+                    let firstIncomeAccountGroup = { code: '', name: '' };
+                    
+                    // Calcular base de compras (Cuentas 14, 5, 6, 7)
+                    let baseCompra = 0;
+                    let firstPurchaseAccountGroup = { code: '', name: '' };
+
+                    movsForDoc.forEach(mov => {
+                        const code = mov.Cuenta.split(' ')[0];
+                        const name = mov.Cuenta.substring(code.length).trim();
                         
-                        if (baseCompra !== 0) {
-                            const firstMov = movsForDoc[0];
-                            const purchaseAccountCode = firstMov.Cuenta.split(' ')[0];
-                            const purchaseAccountName = firstMov.Cuenta.substring(purchaseAccountCode.length).trim();
-                            const txKey = `${purchaseAccountCode}-${firstMov.DocNum}-${baseCompra}`;
-
-                             allDocuments.push({
-                                cuenta: purchaseAccountCode,
-                                nombre: purchaseAccountName,
-                                valor: baseCompra,
-                                isIncome: false,
-                                docDetail: { docNum: firstMov.DocNum, nota: firstMov.Nota, valor: baseCompra, key: txKey }
-                            });
+                        if (code.startsWith('4')) {
+                            baseIngreso += (mov.Creditos - mov.Debitos);
+                            if (!firstIncomeAccountGroup.code) {
+                                firstIncomeAccountGroup = { code, name };
+                            }
+                        } else if (['14', '5', '6', '7'].some(p => code.startsWith(p))) {
+                            baseCompra += (mov.Debitos - mov.Creditos);
+                            if (!firstPurchaseAccountGroup.code) {
+                                firstPurchaseAccountGroup = { code, name };
+                            }
                         }
-                        processedPurchaseDocs.add(docKey);
+                    });
+
+                    const firstRow = movsForDoc[0];
+
+                    if (baseIngreso !== 0) {
+                        const txKey = `${firstIncomeAccountGroup.code}-${firstRow.DocNum}-${baseIngreso}`;
+                        allDocuments.push({
+                            cuenta: firstIncomeAccountGroup.code,
+                            nombre: firstIncomeAccountGroup.name,
+                            valor: baseIngreso,
+                            isIncome: true,
+                            docDetail: { docNum: firstRow.DocNum, nota: firstRow.Nota, valor: baseIngreso, key: txKey }
+                        });
                     }
+
+                    if (baseCompra !== 0) {
+                        const txKey = `${firstPurchaseAccountGroup.code}-${firstRow.DocNum}-${baseCompra}`;
+                        allDocuments.push({
+                            cuenta: firstPurchaseAccountGroup.code,
+                            nombre: firstPurchaseAccountGroup.name,
+                            valor: baseCompra,
+                            isIncome: false,
+                            docDetail: { docNum: firstRow.DocNum, nota: firstRow.Nota, valor: baseCompra, key: txKey }
+                        });
+                    }
+
+                    processedDocs.add(docKey);
                 });
 
                 // Classify and aggregate all documents

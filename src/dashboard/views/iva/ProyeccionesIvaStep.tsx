@@ -295,9 +295,7 @@ const ProyeccionesIvaStep: React.FC = () => {
             files: {
                 ...appState.files,
                 iva_auxiliar: null,
-                iva_dian: null,
-                iva_ventas: null,
-                iva_compras: null
+                iva_dian: null
             },
             ivaLiquidationResult: null,
             ivaNeedsRecalculation: false

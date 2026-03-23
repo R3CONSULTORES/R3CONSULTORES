@@ -34,10 +34,10 @@ const TaskCard: React.FC<{ task: Task, onDragStart: (e: React.DragEvent<HTMLDivE
         <div 
             draggable 
             onDragStart={(e) => onDragStart(e, task.id)}
-            className={`bg-white rounded-md shadow p-3 border-t-4 ${colors.border} cursor-grab hover:shadow-lg transition-shadow group`}
+            className={`bg-white rounded-xl shadow-sm hover:shadow-md border border-slate-100 ${colors.border} p-4 cursor-grab transition-transform hover:-translate-y-0.5 group w-full text-left mx-auto max-w-[95%]`}
         >
             <div className="flex justify-between items-start">
-                <h4 className="font-bold text-slate-800 flex-1 pr-2">{title}</h4>
+                <h4 className="font-bold text-slate-800 flex-1 pr-2 leading-tight">{title}</h4>
                 <div className="flex opacity-0 group-hover:opacity-100 transition-opacity">
                     {showStartReviewButton && (
                         <button onClick={handleStartReviewClick} className="p-1 rounded-full text-slate-500 hover:bg-slate-200" title="Iniciar Revisión">
@@ -48,9 +48,9 @@ const TaskCard: React.FC<{ task: Task, onDragStart: (e: React.DragEvent<HTMLDivE
                     <button onClick={() => onDelete(task)} className="p-1 rounded-full text-slate-500 hover:bg-slate-200" title="Eliminar"><DeleteIcon className="w-4 h-4" /></button>
                 </div>
             </div>
-            <p className="text-sm text-slate-600 mt-1">{clientName || 'General'}</p>
-             <div className="flex justify-between items-center mt-2">
-                <p className={`text-xs font-bold ${colors.text}`}>Vence: {formattedDate}</p>
+            <p className="text-sm text-slate-500 mt-2 font-medium">{clientName || 'General'}</p>
+             <div className="flex justify-between items-center mt-3 pt-3 border-t border-slate-100">
+                <p className={`text-xs font-bold ${colors.text} bg-slate-50 px-2 py-1 rounded-md`}>Vence: {formattedDate}</p>
                 {task.driveLink && (
                     <a 
                         href={task.driveLink} 
@@ -70,11 +70,11 @@ const TaskCard: React.FC<{ task: Task, onDragStart: (e: React.DragEvent<HTMLDivE
 
 const TaskColumn: React.FC<{ title: string; tasks: Task[]; status: TaskStatus; onDrop: (e: React.DragEvent<HTMLDivElement>, status: TaskStatus) => void; onEdit: (task: Task) => void; onDelete: (task: Task) => void; onDragStart: (e: React.DragEvent<HTMLDivElement>, taskId: string) => void; }> = ({ title, tasks, status, onDrop, onEdit, onDelete, onDragStart }) => {
     
-     const columnColors: Record<TaskStatus, { bg: string, text: string }> = {
-        'vencida': { bg: 'bg-red-100/60', text: 'text-red-800' },
-        'por-presentar': { bg: 'bg-amber-100/60', text: 'text-amber-800' },
-        'borrador': { bg: 'bg-orange-100/60', text: 'text-orange-800' },
-        'presentado': { bg: 'bg-green-100/60', text: 'text-green-800' },
+     const columnColors: Record<TaskStatus, { bg: string, text: string, decoration: string }> = {
+        'vencida': { bg: 'bg-slate-50', text: 'text-slate-800', decoration: 'border-t-[3px] border-t-red-500' },
+        'por-presentar': { bg: 'bg-slate-50', text: 'text-slate-800', decoration: 'border-t-[3px] border-t-amber-500' },
+        'borrador': { bg: 'bg-slate-50', text: 'text-slate-800', decoration: 'border-t-[3px] border-t-orange-500' },
+        'presentado': { bg: 'bg-slate-50', text: 'text-slate-800', decoration: 'border-t-[3px] border-t-green-500' },
     };
 
     const colors = columnColors[status];
@@ -87,10 +87,13 @@ const TaskColumn: React.FC<{ title: string; tasks: Task[]; status: TaskStatus; o
         <div 
             onDrop={(e) => onDrop(e, status)}
             onDragOver={handleDragOver}
-            className={`${colors.bg} rounded-lg p-3 flex-shrink-0 w-80`}
+            className={`${colors.bg} rounded-xl p-3 flex-shrink-0 w-80 shadow-sm border border-slate-100 ${colors.decoration} flex flex-col items-center`}
         >
-            <h3 className={`font-bold text-lg ${colors.text} mb-4 px-1`}>{title} ({tasks.length})</h3>
-            <div className="space-y-4 min-h-[60vh]">
+            <div className="flex items-center justify-between mb-4 px-2 pt-1 w-full">
+                <h3 className={`font-bold text-lg ${colors.text}`}>{title}</h3>
+                <span className="bg-slate-200 text-slate-600 text-xs font-bold px-2 py-1 rounded-full">{tasks.length}</span>
+            </div>
+            <div className="w-full space-y-3 min-h-[60vh] pb-2 flex flex-col items-center">
                 {tasks.map(task => (
                     <TaskCard key={task.id} task={task} onDragStart={onDragStart} onEdit={onEdit} onDelete={onDelete} />
                 ))}
@@ -251,7 +254,7 @@ const Tasks: React.FC = () => {
                 </button>
             </header>
             
-            <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center bg-white p-4 rounded-lg shadow-sm border">
+            <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                 <div className="relative w-full md:w-auto md:flex-grow">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                         <SearchIcon className="text-slate-400" />

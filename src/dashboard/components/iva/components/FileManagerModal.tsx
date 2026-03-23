@@ -63,7 +63,7 @@ export const FileManagerModal: React.FC<FileManagerModalProps> = ({
                 <div className="bg-white border-b border-gray-100 p-6 flex justify-between items-center">
                     <div>
                         <h2 className="text-xl font-bold text-[#1e293b]">Gestión de Archivos Fuente</h2>
-                        <p className="text-slate-500 text-sm">Cargue los 4 archivos requeridos para iniciar la liquidación.</p>
+                        <p className="text-slate-500 text-sm">Cargue los 2 archivos requeridos para iniciar la liquidación.</p>
                     </div>
                     <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors">
                         <XMarkIcon className="w-6 h-6" />
@@ -83,24 +83,6 @@ export const FileManagerModal: React.FC<FileManagerModalProps> = ({
                             icon={<FileDocIcon />} 
                         />
                         <WideFileUploadCard 
-                            fileType="iva_ventas" 
-                            status={fileUploadStatus['iva_ventas'].status} 
-                            fileName={fileUploadStatus['iva_ventas'].name} 
-                            onFileChange={handleFileChange} 
-                            title="Informe Ventas" 
-                            description="Detalle de facturación para cruzar ingresos." 
-                            icon={<FileMoneyIcon />} 
-                        />
-                        <WideFileUploadCard 
-                            fileType="iva_compras" 
-                            status={fileUploadStatus['iva_compras'].status} 
-                            fileName={fileUploadStatus['iva_compras'].name} 
-                            onFileChange={handleFileChange} 
-                            title="Informe Compras" 
-                            description="Clasificación detallada de bienes y servicios." 
-                            icon={<FileCartIcon />} 
-                        />
-                        <WideFileUploadCard 
                             fileType="iva_dian" 
                             status={fileUploadStatus['iva_dian'].status} 
                             fileName={fileUploadStatus['iva_dian'].name} 
@@ -113,7 +95,7 @@ export const FileManagerModal: React.FC<FileManagerModalProps> = ({
 
                     {!allBaseFilesLoaded && (
                         <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm flex items-center justify-center gap-2">
-                            <span>⚠️ Faltan archivos por cargar. Asegúrese de completar los 4 campos.</span>
+                            <span>⚠️ Faltan archivos por cargar. Asegúrese de completar los 2 campos.</span>
                         </div>
                     )}
                 </div>

@@ -216,8 +216,8 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
     };
 
     return (
-        <div className="fixed inset-0 bg-slate-900 bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-40 p-4" onClick={onClose}>
-            <div className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-slate-900/20 backdrop-blur-md flex items-center justify-center z-40 p-4" onClick={onClose}>
+            <div className="bg-white rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] w-full max-w-4xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
                 <header className="flex justify-between items-center p-5 border-b border-slate-200">
                     <h2 className="text-2xl font-bold text-slate-800">{isEditing ? 'Editar Cliente' : 'Agregar Nuevo Cliente'}</h2>
                     <button onClick={onClose} className="p-1 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
@@ -367,8 +367,8 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <h4 className="font-medium text-slate-700 mb-3">Nacionales</h4>
-                                <div className="space-y-3">
-                                    <div className="flex items-center gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
+                                    <div className="flex items-center gap-4 col-span-1 sm:col-span-2">
                                         <CheckboxField 
                                             label="IVA" 
                                             checked={responsabilidadesNacionales.iva !== null} 
@@ -387,7 +387,7 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                                     </div>
                                     <CheckboxField label="Impuesto al Consumo" checked={responsabilidadesNacionales.consumo} onChange={(c) => handleResponsibilityChange('consumo', c)} />
                                     <CheckboxField label="Retención en la Fuente" checked={responsabilidadesNacionales.rteFte} onChange={(c) => handleResponsibilityChange('rteFte', c)} />
-                                    <div>
+                                    <div className="col-span-1 sm:col-span-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
                                         <CheckboxField label="Declaración de Renta" checked={responsabilidadesNacionales.renta} onChange={(c) => handleResponsibilityChange('renta', c)} />
                                         {responsabilidadesNacionales.renta && formData.tipoContribuyente !== 'Régimen Simple' && (
                                             <div className="ml-6 mt-2 space-y-2 border-l-2 pl-3 border-amber-200">

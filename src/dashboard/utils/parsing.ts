@@ -166,9 +166,12 @@ function findHeaderRow(sheetData: any[][], requiredHeaderGroups: (string | strin
 }
 
 export const processAuxiliar = (sheetData: any[][], currentNits: Map<string, string>): { data: AuxiliarData[], nits: Map<string, string> } => {
-    const headers = [['cuenta'], ['tercero'], ['fecha'], ['nota'], ['doc num'], ['debitos'], ['creditos']];
+    const headers = [['cuenta', 'codigo'], ['tercero'], ['fecha'], ['nota'], ['doc num', 'documento'], ['debitos'], ['creditos']];
     const optional = ['cheque', 'saldo'];
     const { headerRowIndex, columnMap } = findHeaderRow(sheetData, headers, optional);
+
+    const cuentaKey = ['cuenta', 'codigo'].find(k => k in columnMap)!;
+    const docNumKey = ['doc num', 'documento'].find(k => k in columnMap)!;
 
     const dataRows = sheetData.slice(headerRowIndex + 1);
     const processedData: AuxiliarData[] = [];
@@ -178,7 +181,7 @@ export const processAuxiliar = (sheetData: any[][], currentNits: Map<string, str
     dataRows.forEach(row => {
         if (!Array.isArray(row) || row.every(cell => cell === null || cell === '')) return;
 
-        const cuentaVal = row[columnMap['cuenta']];
+        const cuentaVal = row[columnMap[cuentaKey]];
         if (cuentaVal && normalizeText(String(cuentaVal))) {
             const normalizedCuentaText = normalizeText(String(cuentaVal));
             if (normalizedCuentaText.startsWith('total')) {
@@ -220,7 +223,7 @@ export const processAuxiliar = (sheetData: any[][], currentNits: Map<string, str
             NIT: nitTercero,
             Fecha: formatDate(convertExcelDate(row[columnMap['fecha']])),
             Nota: nota,
-            DocNum: String(row[columnMap['doc num']] || '').replace(/\(.*\)/g, '').trim(),
+            DocNum: String(row[columnMap[docNumKey]] || '').replace(/\(.*\)/g, '').trim(),
             Debitos: cleanNumber(debitosVal),
             Creditos: cleanNumber(creditosVal),
         });

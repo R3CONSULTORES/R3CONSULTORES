@@ -70,14 +70,14 @@ const IvaReview: React.FC<IvaReviewProps> = ({ embedded, initialTab }) => {
     // --- LÓGICA DE AUDITORÍA GLOBAL (Master Handler) ---
     
     const handleGlobalAudit = () => {
-        const { files: { iva_auxiliar, iva_dian, iva_ventas, iva_compras } } = appState;
+        const { files: { iva_auxiliar, iva_dian } } = appState;
         
         if (!iva_auxiliar) {
             showError("Falta el archivo 'Auxiliar General (IVA)'.");
             return;
         }
-        if (!iva_dian || !iva_ventas || !iva_compras) {
-            showError("Faltan archivos para el cruce DIAN (Ventas, Compras o Reporte DIAN).");
+        if (!iva_dian) {
+            showError("Falta el archivo para el cruce DIAN (Reporte DIAN).");
             return;
         }
 
@@ -183,6 +183,53 @@ const IvaReview: React.FC<IvaReviewProps> = ({ embedded, initialTab }) => {
                     return { faltantesEnDian, faltantesEnWo, conDiferenciaValor };
                  };
 
+                 // Synth Ventas and Compras from Auxiliar for DIAN Audit
+                 const iva_ventas_sintetico: any[] = [];
+                 const iva_compras_sintetico: any[] = [];
+                 
+                 groupedByDoc.forEach((movimientos, docNum) => {
+                     let baseIngreso = 0, ivaIngreso = 0;
+                     let baseCompra = 0, ivaCompra = 0;
+                     let thirdPartyNit = movimientos[0]?.NIT || '';
+                     let thirdPartyName = movimientos[0]?.Tercero || '';
+                     let fecha = movimientos[0]?.Fecha;
+ 
+                     movimientos.forEach(mov => {
+                         const code = mov.Cuenta.split(' ')[0];
+                         if (code.startsWith('4')) {
+                             baseIngreso += (mov.Creditos - mov.Debitos);
+                         } else if (['14', '5', '6', '7'].some(p => code.startsWith(p))) {
+                             baseCompra += (mov.Debitos - mov.Creditos);
+                         } else if (code.startsWith('240802')) {
+                             ivaCompra += (mov.Debitos - mov.Creditos);
+                         } else if (code.startsWith('2408')) {
+                             ivaIngreso += (mov.Creditos - mov.Debitos);
+                         }
+                     });
+ 
+                     if (baseIngreso !== 0) {
+                         iva_ventas_sintetico.push({
+                             Documento: docNum,
+                             Fecha: fecha,
+                             Cliente: thirdPartyName,
+                             NIT: thirdPartyNit,
+                             VentaNeta: baseIngreso,
+                             IVA: ivaIngreso
+                         });
+                     }
+ 
+                     if (baseCompra !== 0) {
+                         iva_compras_sintetico.push({
+                             Documento: docNum,
+                             Fecha: fecha,
+                             Cliente: thirdPartyName,
+                             NIT: thirdPartyNit,
+                             VentaNeta: baseCompra,
+                             IVA: ivaCompra
+                         });
+                     }
+                 });
+
                  const isIngreso = (d: DianData) => {
                     const grupo = normalizeText(d.Grupo);
                     const tipoDoc = normalizeText(d.TipoDeDocumento);
@@ -192,10 +239,10 @@ const IvaReview: React.FC<IvaReviewProps> = ({ embedded, initialTab }) => {
                 const dianCompras = iva_dian.filter(d => !isIngreso(d));
                 const getDianCompraNit = (row: DianData) => normalizeText(row.TipoDeDocumento).includes('documento soporte') ? String(row.NITReceptor).trim() : String(row.NITEMISOR).trim();
 
-                const resultadoIngresos = compareDocuments(iva_ventas, dianIngresos, 'VentaNeta', 'Base', d => String(d.NITReceptor).trim());
-                const resultadoIvaGenerado = compareDocuments(iva_ventas, dianIngresos, 'IVA', 'IVA', d => String(d.NITReceptor).trim());
-                const resultadoCompras = compareDocuments(iva_compras, dianCompras, 'VentaNeta', 'Base', getDianCompraNit);
-                const resultadoIvaDescontable = compareDocuments(iva_compras, dianCompras, 'IVA', 'IVA', getDianCompraNit);
+                const resultadoIngresos = compareDocuments(iva_ventas_sintetico, dianIngresos, 'VentaNeta', 'Base', d => String(d.NITReceptor).trim());
+                const resultadoIvaGenerado = compareDocuments(iva_ventas_sintetico, dianIngresos, 'IVA', 'IVA', d => String(d.NITReceptor).trim());
+                const resultadoCompras = compareDocuments(iva_compras_sintetico, dianCompras, 'VentaNeta', 'Base', getDianCompraNit);
+                const resultadoIvaDescontable = compareDocuments(iva_compras_sintetico, dianCompras, 'IVA', 'IVA', getDianCompraNit);
 
 
                 // --- ACTUALIZACIÓN DE ESTADO ---

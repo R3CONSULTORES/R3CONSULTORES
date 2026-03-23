@@ -115,8 +115,6 @@ const getInitialState = (): AppState => {
             retencion_base: null,
             iva_auxiliar: null,
             iva_dian: null,
-            iva_ventas: null,
-            iva_compras: null,
             retencion_auxiliar: null,
             retencion_compras: null,
             retencion_ventas: null,
@@ -130,8 +128,6 @@ const getInitialState = (): AppState => {
             retencion_base: { status: 'pending', name: '' },
             iva_auxiliar: { status: 'pending', name: '' },
             iva_dian: { status: 'pending', name: '' },
-            iva_ventas: { status: 'pending', name: '' },
-            iva_compras: { status: 'pending', name: '' },
             retencion_auxiliar: { status: 'pending', name: '' },
             retencion_compras: { status: 'pending', name: '' },
             retencion_ventas: { status: 'pending', name: '' },
@@ -402,30 +398,49 @@ const App: React.FC = () => {
             const requiredTasks = await generateTaxTasksForClient(client);
 
             const { data: existingDocs } = await db.from('app_tasks')
-                .select('*')
+                .select('id, deadline_id')
                 .eq('client_id', client.id)
                 .eq('is_auto_generated', true);
             
-            const existingTasks = new Map<string, Task>();
+            const existingTasks = new Map<string, string>();
             if (existingDocs) {
                 existingDocs.forEach((doc: any) => {
-                    existingTasks.set(doc.id, { id: doc.id, ...doc } as Task);
+                    if (doc.deadline_id) {
+                        existingTasks.set(doc.deadline_id, doc.id);
+                    }
                 });
             }
 
-            const requiredTaskIds = new Set(requiredTasks.map(t => t.deadlineId));
+            const requiredTaskIds = new Set(requiredTasks.map(t => t.deadlineId as string));
 
             // Upsert required tasks
             for (const task of requiredTasks) {
                 if (task.deadlineId) {
-                    await db.from('app_tasks').upsert({ id: task.deadlineId, ...task, client_id: client.id, is_auto_generated: true, user_id: user.id });
+                    const existingUuid = existingTasks.get(task.deadlineId);
+                    if (existingUuid) {
+                        await db.from('app_tasks').update({
+                            title: task.title,
+                            due_date: task.dueDate,
+                            status: task.status
+                        }).eq('id', existingUuid);
+                    } else {
+                        await db.from('app_tasks').insert({
+                            deadline_id: task.deadlineId,
+                            title: task.title,
+                            due_date: task.dueDate,
+                            status: task.status,
+                            client_id: client.id,
+                            is_auto_generated: true,
+                            user_id: user?.id
+                        });
+                    }
                 }
             }
 
             // Delete obsolete tasks
-            for (const existingId of existingTasks.keys()) {
-                if (!requiredTaskIds.has(existingId)) {
-                    await db.from('app_tasks').delete().eq('id', existingId);
+            for (const [deadlineId, uuid] of existingTasks.entries()) {
+                if (!requiredTaskIds.has(deadlineId)) {
+                    await db.from('app_tasks').delete().eq('id', uuid);
                 }
             }
         } catch (e: any) {

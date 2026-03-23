@@ -474,7 +474,7 @@ export const generateZipArchive = async (appState: AppState) => {
         'revision_contable': ['auxiliar', 'compras', 'ventas', 'dian'],
         'validacion': ['validacion'],
         'retenciones': ['retencion_auxiliar', 'retencion_compras', 'retencion_ventas', 'retencion_base'],
-        'iva': ['iva_auxiliar', 'iva_compras', 'iva_ventas', 'iva_dian'],
+        'iva': ['iva_auxiliar', 'iva_dian'],
     };
 
     for (const folderName in folderMapping) {

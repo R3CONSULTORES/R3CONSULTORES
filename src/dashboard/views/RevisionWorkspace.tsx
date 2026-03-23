@@ -469,7 +469,7 @@ const RevisionWorkspace: React.FC = () => {
 
         // 2. Revisión IVA
         const isIvaComplete = !!appState.ivaLiquidationResult;
-        const areIvaFilesLoaded = !!(appState.files.iva_auxiliar && appState.files.iva_dian && appState.files.iva_ventas && appState.files.iva_compras);
+        const areIvaFilesLoaded = !!(appState.files.iva_auxiliar && appState.files.iva_dian);
         // Using size check on maps or checking if they are not empty objects (if maps were converted)
         const hasIvaClassification = (appState.incomeAccountVatClassification && appState.incomeAccountVatClassification.size > 0);
 
