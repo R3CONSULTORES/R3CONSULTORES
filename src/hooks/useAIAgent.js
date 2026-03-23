@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { supabase, isSimulated } from '../lib/supabase';
 export function useAIAgent() {
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +47,44 @@ export function useAIAgent() {
     } else if (chatStep === 2) {
       // Step 2: Phone captured
       setMockData(prev => ({ ...prev, telefono: text }));
-      addMessage("¡Perfecto! Hemos registrado tu solicitud. Un experto de R3 Consultores analizará tu caso y te contactará a la brevedad.\n\n✅ *Simulando envío de correo estructurado a info@r3consultores.com...*");
+      addMessage("¡Perfecto! Hemos registrado tu solicitud. Un experto de R3 Consultores analizará tu caso y te contactará a la brevedad.\n\n✅ *Solicitud enviada a la base de datos de asesores...*");
+      
+      if (!isSimulated && supabase) {
+        try {
+          // Generate an ID for the client to bypass needing SELECT RLS permissions to get the generated ID
+          const newClienteId = crypto.randomUUID();
+
+          // 1. Insert Client (without .select())
+          const { error: errCliente } = await supabase
+            .from('clientes')
+            .insert({ 
+              id: newClienteId,
+              nombre_completo: mockData.nombre, 
+              email: 'pendiente_' + Date.now() + '@r3consultores.local', 
+              telefono: text,
+              nombre_empresa: 'No especificada'
+            });
+
+          // 2. Insert Appointment if no error
+          if (!errCliente) {
+            const { error: errCita } = await supabase
+              .from('citas')
+              .insert({ 
+                cliente_id: newClienteId, 
+                fecha_hora_propuesta: new Date().toISOString(),
+                motivo_consulta: mockData.servicioClass,
+                resumen_ia_necesidad: mockData.motivo,
+                estado: 'pendiente'
+              });
+              
+              if (errCita) console.error('Error insertando cita en Supabase:', errCita);
+          } else {
+             console.error('Error insertando cliente en Supabase:', errCliente);
+          }
+        } catch (error) {
+          console.error('Supabase error:', error);
+        }
+      }
       
       await new Promise(r => setTimeout(r, 1500));
       setChatStep(3);

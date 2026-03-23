@@ -3,68 +3,70 @@ import { Briefcase, FileText, Calculator, FileBarChart, Globe, Building2 } from 
 
 const services = [
   {
-    title: "Trámites Cámara de Comercio / DIAN",
-    description: "Creación formal de empresas y actualización de RUT ante la DIAN con asesoría integral para nuevos emprendedores.",
-    icon: <Briefcase className="w-8 h-8 text-r3-gold mb-6" />
+    title: "RENTA",
+    description: "Declaración de renta para personas naturales y jurídicas, maximizando beneficios tributarios.",
+    icon: <FileText className="w-6 h-6 text-r3-gold" />
   },
   {
-    title: "Declaración de Renta Persona Natural y Jurídica",
-    description: "Análisis financiero y elaboración exacta de declaraciones anuales maximizando sus beneficios tributarios según la ley vigente.",
-    icon: <FileText className="w-8 h-8 text-r3-gold mb-6" />
+    title: "IVA",
+    description: "Presentación bimensual y cuatrimestral de obligaciones de IVA sin sanciones.",
+    icon: <Calculator className="w-6 h-6 text-r3-gold" />
   },
   {
-    title: "Impuestos (IVA, ICA, Retefuente, INC)",
-    description: "Presentación bimensual y cuatrimestral de obligaciones tributarias para mantener su negocio al día, sin sanciones legales.",
-    icon: <Calculator className="w-8 h-8 text-r3-gold mb-6" />
+    title: "EXÓGENA",
+    description: "Reporte detallado de operaciones económicas con terceros ante la DIAN.",
+    icon: <FileBarChart className="w-6 h-6 text-r3-gold" />
   },
   {
-    title: "Información Exógena",
-    description: "Preparación y reporte detallado de todas las operaciones económicas con terceros para la DIAN y entes municipales.",
-    icon: <FileBarChart className="w-8 h-8 text-r3-gold mb-6" />
+    title: "CÁMARA Y DIAN",
+    description: "Creación de empresas, actualización de RUT y trámites legales.",
+    icon: <Briefcase className="w-6 h-6 text-r3-gold" />
   },
   {
-    title: "Implementación World Office, Siigo y Alegra",
-    description: "Capacitación y parametrización de sus sistemas contables en la nube. Hacemos que la tecnología trabaje a su favor.",
-    icon: <Globe className="w-8 h-8 text-r3-gold mb-6" />
+    title: "WORLD OFFICE",
+    description: "Implementación y capacitación en sistemas contables en la nube.",
+    icon: <Globe className="w-6 h-6 text-r3-gold" />
   },
   {
-    title: "Asesoría Contable General",
-    description: "Procesamiento, revisión y certificación mensual de la situación financiera de su compañía para toma de decisiones acertada.",
-    icon: <Building2 className="w-8 h-8 text-r3-gold mb-6" />
+    title: "ASESORÍA CONTABLE",
+    description: "Revisión y certificación mensual de la situación financiera de su empresa.",
+    icon: <Building2 className="w-6 h-6 text-r3-gold" />
   }
 ];
 
 export default function ServicesGrid() {
   return (
     <>
-      {/* ========== SERVICIOS SECTION ========== */}
-      <section id="servicios" className="py-24 lg:py-36 bg-r3-bg">
+      {/* ========== SERVICIOS SECTION — Full white slide ========== */}
+      <section id="servicios" className="snap-section bg-[#f8fafc] pt-20 pb-8 lg:pt-24 lg:pb-0">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-20 reveal">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-10 lg:mb-12 reveal">
             <div className="max-w-2xl">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-r3-text leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1e293b] leading-tight reveal anim-hidden anim-slide-up">
                 Soluciones contables<br />que impulsan su negocio
               </h2>
             </div>
-            <div className="mt-6 lg:mt-0">
-              <a href="#contacto" className="ghost-btn ghost-btn-dark inline-flex items-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
+            <div className="mt-4 lg:mt-0 reveal anim-hidden anim-fade-scale anim-delay-2">
+              <a href="#contacto" className="ghost-btn ghost-btn-dark inline-flex items-center gap-3 px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-none">
                 Consultar ahora
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
             {services.map((srv, index) => (
               <div
                 key={index}
-                className="bg-white p-10 border border-gray-100 hover:border-r3-gold/30 hover:shadow-2xl hover:shadow-r3-gold/5 transition-all duration-300 reveal group"
-                style={{ transitionDelay: `${index * 50}ms` }}
+                className="bg-white p-6 lg:p-8 rounded-lg border border-gray-100 hover:border-r3-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-r3-gold/5 transition-all duration-300 reveal group cursor-default anim-hidden anim-slide-up"
+                style={{ animationDelay: `${300 + index * 80}ms` }}
               >
-                {srv.icon}
-                <h3 className="text-2xl font-bold text-r3-slate mb-4 pb-4 border-b border-gray-100 group-hover:border-r3-gold/30 transition-colors">
-                  {srv.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  {srv.icon}
+                  <h3 className="text-lg lg:text-xl font-extrabold text-[#1e293b] tracking-wide">
+                    {srv.title}
+                  </h3>
+                </div>
+                <p className="text-gray-500 leading-relaxed text-xs lg:text-sm">
                   {srv.description}
                 </p>
               </div>
@@ -73,28 +75,25 @@ export default function ServicesGrid() {
         </div>
       </section>
 
-      {/* ========== NOSOTROS SECTION ========== */}
-      <section id="nosotros" className="bg-r3-slate">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-            <div className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 py-24 lg:py-36 reveal">
-              <div className="w-16 h-1 bg-r3-gold mb-8"></div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-8">
-                Confíe su gestión contable a profesionales
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">
-                Somos una firma de contadores públicos en Colombia con experiencia en soluciones contables, tributarias y financieras. Respaldamos a empresas y personas naturales con un servicio integral y personalizado.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contacto" className="ghost-btn ghost-btn-gold inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none">
-                  Agendar Cita
-                </a>
-              </div>
-            </div>
-            <div className="relative min-h-[500px] w-full h-full lg:h-auto overflow-hidden">
-                <img src="/assets/nosotros_r3_1774156632518.png" alt="Equipo R3 Consultores" className="absolute inset-0 w-full h-full object-cover object-center" />
-                <div className="absolute inset-0 bg-r3-slate/20"></div>
-            </div>
+      {/* ========== NOSOTROS SECTION — Full dark slide, typography only ========== */}
+      <section id="nosotros" className="snap-section bg-[#1e293b]">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          
+          {/* Gold accent line */}
+          <div className="border-t-2 border-[#f6b034] w-24 mx-auto mb-8 reveal anim-line"></div>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-8 reveal anim-hidden anim-slide-up anim-delay-1">
+            Confíe su gestión contable a profesionales
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-slate-300 text-lg md:text-xl leading-relaxed mb-10 reveal anim-hidden anim-slide-up anim-delay-2">
+            Somos una firma de contadores públicos en Colombia con experiencia en soluciones contables, tributarias y financieras. Respaldamos a empresas y personas naturales con un servicio integral y personalizado.
+          </p>
+
+          <div className="reveal anim-hidden anim-fade-scale anim-delay-3">
+            <a href="#contacto" className="inline-flex items-center bg-[#f6b034] text-white font-bold px-8 py-4 rounded-md text-sm uppercase tracking-widest shadow-lg hover:shadow-xl hover:brightness-110 transition-all duration-300">
+              Agendar Cita
+            </a>
           </div>
         </div>
       </section>

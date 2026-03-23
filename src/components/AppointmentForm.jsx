@@ -6,6 +6,15 @@ export default function AppointmentForm() {
   const { messages, isOpen, toggleChat, processResponse, isTyping, chatStep, mockData } = useAIAgent();
   const [inputText, setInputText] = useState('');
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
+
+  // Auto-focus input when bot finishes typing
+  useEffect(() => {
+    if (!isTyping && isOpen) {
+      // Small timeout to ensure render completes before focusing
+      setTimeout(() => inputRef.current?.focus(), 50);
+    }
+  }, [isTyping, isOpen]);
 
   // Auto-scroll chats
   useEffect(() => {
@@ -22,26 +31,34 @@ export default function AppointmentForm() {
 
   return (
     <>
-      <section id="agendar" className="bg-r3-bg py-24 lg:py-36 relative overflow-hidden">
+      <section id="contacto" className="snap-section bg-[#f8fafc] py-16 lg:py-0 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-r3-gold/10 rounded-full blur-3xl"></div>
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 shadow-2xl border border-r3-border/30 reveal flex flex-col md:flex-row items-center gap-12">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-12 relative z-10">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 shadow-2xl border border-r3-border/30 reveal anim-hidden anim-fade-scale flex flex-col md:flex-row items-center gap-12">
             
             <div className="md:w-1/2 space-y-6 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-r3-slate font-bold text-xs tracking-wider rounded-full uppercase border border-blue-100">
-                <CheckCircle className="w-4 h-4 text-r3-gold" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-[#1e293b] font-bold text-xs tracking-wider rounded-full uppercase border border-blue-100">
+                <CheckCircle className="w-4 h-4 text-[#f6b034]" />
                 Gestión Inteligente
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-r3-slate leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e293b] leading-tight">
                 Soy tu Asesor de IA.<br/>¿Agendamos una cita?
               </h2>
-              <p className="text-r3-muted text-base leading-relaxed">
-                Me encargaré de gestionar tu solicitud de forma inmediata, recolectar tus datos y agendar tu espacio con nuestros contadores expertos.
-              </p>
+
+              {/* AI Speech Bubble */}
+              <div className="relative bg-[#f8fafc] border border-gray-200 rounded-2xl rounded-bl-sm p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 bg-[#f6b034] rounded-full flex items-center justify-center text-[#1e293b] font-bold text-xs shrink-0 shadow-md">R3</div>
+                  <p className="text-[#64748b] text-sm leading-relaxed">
+                    Hola. Cuéntanos brevemente qué requerimiento tienes (ej. revisión de renta, outsourcing contable) y te asignaremos el espacio ideal con uno de nuestros especialistas.
+                  </p>
+                </div>
+              </div>
+
               <div className="pt-4 flex flex-col items-center md:items-start space-y-3">
                 <button 
                   onClick={toggleChat} 
-                  className="ghost-btn ghost-btn-dark inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-none shadow-lg hover:shadow-xl transition-all"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg bg-[#f6b034] text-white shadow-lg hover:shadow-xl hover:bg-[#e5a020] transition-all duration-300"
                 >
                   <MessageSquare className="w-5 h-5" />
                   Iniciar Chat R3Bot
@@ -153,6 +170,7 @@ export default function AppointmentForm() {
 
           <form onSubmit={handleSend} className="p-3 bg-white border-t border-gray-100 flex items-center gap-2 shrink-0">
             <input 
+              ref={inputRef}
               type="text" 
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}

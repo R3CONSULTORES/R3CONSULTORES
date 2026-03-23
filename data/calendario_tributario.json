@@ -1,0 +1,3332 @@
+[
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-02-10"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-02-11"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-02-12"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-02-13"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-02-16"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-02-17"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-02-18"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-02-19"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-02-20"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago primera cuota Grands contribuyentes en general",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-02-23"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-04-13"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-04-14"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-04-15"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-04-16"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-04-17"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-04-20"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-04-21"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-04-22"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-04-23"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Declaración y pago segunda cuota y primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-04-24"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-06-10"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-06-11"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-06-12"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-06-16"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-06-17"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-06-18"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-06-19"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-06-22"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-06-23"
+  },
+  {
+    "impuesto": "Renta GC",
+    "periodo": "Pago tercera cuota y segunda cuota sobretasa instituciones financieras y otras; ademá de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-06-24"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Declaración y pago primera cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-07-09"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-07-10"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-07-13"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-07-14"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-07-15"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-07-16"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-07-17"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-07-21"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-07-22"
+  },
+  {
+    "impuesto": "Renta PJ",
+    "periodo": "Pago segunda cuota, incluye primera cuota de sobretasa instituciones financieras y otras, además de los contribuyentes cuya actividad economlca principal sea la generación de energía eléctrica a través de recursos hídricos",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-07-23"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "01-02",
+    "fecha_limite": "2026-08-12"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "03-04",
+    "fecha_limite": "2026-08-13"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "05-06",
+    "fecha_limite": "2026-08-14"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "07-08",
+    "fecha_limite": "2026-08-18"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "09-10",
+    "fecha_limite": "2026-08-19"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "11-12",
+    "fecha_limite": "2026-08-20"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "13-14",
+    "fecha_limite": "2026-08-21"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "15-16",
+    "fecha_limite": "2026-08-24"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "17-18",
+    "fecha_limite": "2026-08-25"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Declaración y pago",
+    "nit_digitos": "19-20",
+    "fecha_limite": "2026-08-26"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "21-22",
+    "fecha_limite": "2026-08-27"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "23-24",
+    "fecha_limite": "2026-08-28"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "25-26",
+    "fecha_limite": "2026-08-31"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "27-28",
+    "fecha_limite": "2026-09-01"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "29-30",
+    "fecha_limite": "2026-09-02"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "31-32",
+    "fecha_limite": "2026-09-03"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "33-34",
+    "fecha_limite": "2026-09-04"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "35-36",
+    "fecha_limite": "2026-09-07"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "37-38",
+    "fecha_limite": "2026-09-08"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "39-40",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "41-42",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "43-44",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "45-46",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "47-48",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "49-50",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "51-52",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "53-54",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "55-56",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "57-58",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "59-60",
+    "fecha_limite": "2026-09-23"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "61-62",
+    "fecha_limite": "2026-09-24"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "63-64",
+    "fecha_limite": "2026-09-25"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "65-66",
+    "fecha_limite": "2026-09-28"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "67-68",
+    "fecha_limite": "2026-10-01"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "69-70",
+    "fecha_limite": "2026-10-02"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "71-72",
+    "fecha_limite": "2026-10-05"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "73-74",
+    "fecha_limite": "2026-10-06"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "75-76",
+    "fecha_limite": "2026-10-07"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "77-78",
+    "fecha_limite": "2026-10-08"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "79-80",
+    "fecha_limite": "2026-10-09"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "81-82",
+    "fecha_limite": "2026-10-13"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "83-84",
+    "fecha_limite": "2026-10-14"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "85-86",
+    "fecha_limite": "2026-10-15"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "87-88",
+    "fecha_limite": "2026-10-16"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "89-90",
+    "fecha_limite": "2026-10-19"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "91-92",
+    "fecha_limite": "2026-10-20"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "93-94",
+    "fecha_limite": "2026-10-21"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "95-96",
+    "fecha_limite": "2026-10-22"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "97-98",
+    "fecha_limite": "2026-10-23"
+  },
+  {
+    "impuesto": "Renta PN",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "99-00",
+    "fecha_limite": "2026-10-26"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-04-13"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-04-14"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-04-15"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-04-16"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-04-17"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-04-20"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-04-21"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-04-22"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-04-23"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-04-24"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas jurídicas",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "01-02",
+    "fecha_limite": "2026-08-12"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "03-04",
+    "fecha_limite": "2026-08-13"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "05-06",
+    "fecha_limite": "2026-08-14"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "07-08",
+    "fecha_limite": "2026-08-18"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "09-10",
+    "fecha_limite": "2026-08-19"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "11-12",
+    "fecha_limite": "2026-08-20"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "13-14",
+    "fecha_limite": "2026-08-21"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "15-16",
+    "fecha_limite": "2026-08-24"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "17-18",
+    "fecha_limite": "2026-08-25"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Personas naturales",
+    "nit_digitos": "19-20",
+    "fecha_limite": "2026-08-26"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "21-22",
+    "fecha_limite": "2026-08-27"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "23-24",
+    "fecha_limite": "2026-08-28"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "25-26",
+    "fecha_limite": "2026-08-31"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "27-28",
+    "fecha_limite": "2026-09-01"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "29-30",
+    "fecha_limite": "2026-09-02"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "31-32",
+    "fecha_limite": "2026-09-03"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "33-34",
+    "fecha_limite": "2026-09-04"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "35-36",
+    "fecha_limite": "2026-09-07"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "37-38",
+    "fecha_limite": "2026-09-08"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "39-40",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "41-42",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "43-44",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "45-46",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "47-48",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "49-50",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "51-52",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "53-54",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "55-56",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "57-58",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "59-60",
+    "fecha_limite": "2026-09-23"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "61-62",
+    "fecha_limite": "2026-09-24"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "63-64",
+    "fecha_limite": "2026-09-25"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "65-66",
+    "fecha_limite": "2026-09-28"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "67-68",
+    "fecha_limite": "2026-10-01"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "69-70",
+    "fecha_limite": "2026-10-02"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "71-72",
+    "fecha_limite": "2026-10-05"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "73-74",
+    "fecha_limite": "2026-10-06"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "75-76",
+    "fecha_limite": "2026-10-07"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "77-78",
+    "fecha_limite": "2026-10-08"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "79-80",
+    "fecha_limite": "2026-10-09"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "81-82",
+    "fecha_limite": "2026-10-13"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "83-84",
+    "fecha_limite": "2026-10-14"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "85-86",
+    "fecha_limite": "2026-10-15"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "87-88",
+    "fecha_limite": "2026-10-16"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "89-90",
+    "fecha_limite": "2026-10-19"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "91-92",
+    "fecha_limite": "2026-10-20"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "93-94",
+    "fecha_limite": "2026-10-21"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "95-96",
+    "fecha_limite": "2026-10-22"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "97-98",
+    "fecha_limite": "2026-10-23"
+  },
+  {
+    "impuesto": "Activos Exterior",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "99-00",
+    "fecha_limite": "2026-10-26"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-02-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-02-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-02-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-02-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-02-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-02-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-02-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-02-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-02-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ENERO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-02-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-03-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-03-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-03-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-03-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-03-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-03-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-03-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-03-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-03-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "FEBRERO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-03-24"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-04-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-04-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-04-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-04-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-04-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-04-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-04-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-04-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-04-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MARZO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-04-24"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "ABRIL",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-06-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-06-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-06-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-06-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-06-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-06-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-06-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-06-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-06-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "MAYO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-06-24"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-07-09"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-07-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-07-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-07-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-07-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-07-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-07-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-07-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-07-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JUNIO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-07-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-08-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-08-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-08-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-08-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-08-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-08-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-08-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-08-24"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-08-25"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "JULIO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-08-26"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "AGOSTO",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-10-09"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-10-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-10-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-10-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-10-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-10-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-10-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-10-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-10-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "SEPTIEMBRE",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-10-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-11-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-11-12"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-11-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-11-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-11-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-11-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-11-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-11-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-11-24"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "OCTUBRE",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-11-25"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-12-10"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-12-11"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-12-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-12-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-12-16"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-12-17"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-12-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-12-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-12-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "NOVIEMBRE",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-12-23"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "1",
+    "fecha_limite": "2027-01-13"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "2",
+    "fecha_limite": "2027-01-14"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "3",
+    "fecha_limite": "2027-01-15"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "4",
+    "fecha_limite": "2027-01-18"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "5",
+    "fecha_limite": "2027-01-19"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "6",
+    "fecha_limite": "2027-01-20"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "7",
+    "fecha_limite": "2027-01-21"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "8",
+    "fecha_limite": "2027-01-22"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "9",
+    "fecha_limite": "2027-01-25"
+  },
+  {
+    "impuesto": "Retefuente",
+    "periodo": "DICIEMBRE",
+    "nit_digitos": "0",
+    "fecha_limite": "2027-01-26"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Declaración y pago primera cuota",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Impuesto al patrimonio",
+    "periodo": "Pago segunda cuota",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-03-10"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-03-11"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-03-12"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-03-13"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-03-16"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-03-17"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-03-18"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-03-19"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-03-20"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-03-24"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-07-09"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-07-10"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-07-13"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-07-14"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-07-15"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-07-16"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-07-17"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-07-21"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-07-22"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-07-23"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-11-11"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-11-12"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-11-13"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-11-17"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-11-18"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-11-19"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-11-20"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-11-23"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-11-24"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-11-25"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "1",
+    "fecha_limite": "2027-01-13"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "2",
+    "fecha_limite": "2027-01-14"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "3",
+    "fecha_limite": "2027-01-15"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "4",
+    "fecha_limite": "2027-01-18"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "5",
+    "fecha_limite": "2027-01-19"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "6",
+    "fecha_limite": "2027-01-20"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "7",
+    "fecha_limite": "2027-01-21"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "8",
+    "fecha_limite": "2027-01-22"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "9",
+    "fecha_limite": "2027-01-25"
+  },
+  {
+    "impuesto": "IVA Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "0",
+    "fecha_limite": "2027-01-26"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 1 Enero-abril",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 2 Mayo-agosto",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "1",
+    "fecha_limite": "2027-01-13"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "2",
+    "fecha_limite": "2027-01-14"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "3",
+    "fecha_limite": "2027-01-15"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "4",
+    "fecha_limite": "2027-01-18"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "5",
+    "fecha_limite": "2027-01-19"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "6",
+    "fecha_limite": "2027-01-20"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "7",
+    "fecha_limite": "2027-01-21"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "8",
+    "fecha_limite": "2027-01-22"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "9",
+    "fecha_limite": "2027-01-25"
+  },
+  {
+    "impuesto": "IVA Cuatrimestral",
+    "periodo": "CUATRIMESTRE 3 Septiembre-diciembre",
+    "nit_digitos": "0",
+    "fecha_limite": "2027-01-26"
+  },
+  {
+    "impuesto": "IVA anual Simple",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "1 - 2",
+    "fecha_limite": "2026-02-16"
+  },
+  {
+    "impuesto": "IVA anual Simple",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "3 - 4",
+    "fecha_limite": "2026-02-17"
+  },
+  {
+    "impuesto": "IVA anual Simple",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "5 - 6",
+    "fecha_limite": "2026-02-18"
+  },
+  {
+    "impuesto": "IVA anual Simple",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "7 - 8",
+    "fecha_limite": "2026-02-19"
+  },
+  {
+    "impuesto": "IVA anual Simple",
+    "periodo": "Vencimiento Único",
+    "nit_digitos": "9 - 0",
+    "fecha_limite": "2026-02-20"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-06-10"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-06-11"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-06-12"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-06-16"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-06-17"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-06-18"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-06-19"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-06-22"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-06-23"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-06-24"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-07-09"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-07-10"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-07-13"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-07-14"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-07-15"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-07-16"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-07-17"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-07-21"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-07-22"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-07-23"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-11-11"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-11-12"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-11-13"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-11-17"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-11-18"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-11-19"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-11-20"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-11-23"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-11-24"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-11-25"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "1",
+    "fecha_limite": "2027-01-13"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "2",
+    "fecha_limite": "2027-01-14"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "3",
+    "fecha_limite": "2027-01-15"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "4",
+    "fecha_limite": "2027-01-18"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "5",
+    "fecha_limite": "2027-01-19"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "6",
+    "fecha_limite": "2027-01-20"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "7",
+    "fecha_limite": "2027-01-21"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "8",
+    "fecha_limite": "2027-01-22"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "9",
+    "fecha_limite": "2027-01-25"
+  },
+  {
+    "impuesto": "Anticipo Simple",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "0",
+    "fecha_limite": "2027-01-26"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-03-10"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-03-11"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-03-12"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-03-13"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-03-16"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-03-17"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-03-18"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-03-19"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-03-20"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 1 Enero-Febrero",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-03-24"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-05-13"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 2 Marzo-abril",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-07-09"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-07-10"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-07-13"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-07-14"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-07-15"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-07-16"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-07-17"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-07-21"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-07-22"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 3 Mayo-Junio",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-07-23"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-09-09"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-09-10"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-09-11"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-09-14"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-09-15"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-09-16"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-09-17"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-09-18"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-09-21"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 4 Julio-Agosto",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-09-22"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-11-11"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-11-12"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-11-13"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-11-17"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-11-18"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-11-19"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-11-20"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-11-23"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-11-24"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 5 Septiembre-Octubre",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-11-25"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "1",
+    "fecha_limite": "2027-01-13"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "2",
+    "fecha_limite": "2027-01-14"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "3",
+    "fecha_limite": "2027-01-15"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "4",
+    "fecha_limite": "2027-01-18"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "5",
+    "fecha_limite": "2027-01-19"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "6",
+    "fecha_limite": "2027-01-20"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "7",
+    "fecha_limite": "2027-01-21"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "8",
+    "fecha_limite": "2027-01-22"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "9",
+    "fecha_limite": "2027-01-25"
+  },
+  {
+    "impuesto": "INC Bimestral",
+    "periodo": "BIMESTRE 6 Noviembre-Diciembre",
+    "nit_digitos": "0",
+    "fecha_limite": "2027-01-26"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "01-05",
+    "fecha_limite": "2026-05-14"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "06-10",
+    "fecha_limite": "2026-05-15"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "11-15",
+    "fecha_limite": "2026-05-19"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "16-20",
+    "fecha_limite": "2026-05-20"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "21-25",
+    "fecha_limite": "2026-05-21"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "26-30",
+    "fecha_limite": "2026-05-22"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "31-35",
+    "fecha_limite": "2026-05-25"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "36-40",
+    "fecha_limite": "2026-05-26"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "41-45",
+    "fecha_limite": "2026-05-27"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "46-50",
+    "fecha_limite": "2026-05-28"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "51-55",
+    "fecha_limite": "2026-05-29"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "56-60",
+    "fecha_limite": "2026-06-01"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "61-65",
+    "fecha_limite": "2026-06-02"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "66-70",
+    "fecha_limite": "2026-06-03"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "71-75",
+    "fecha_limite": "2026-06-04"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "76-80",
+    "fecha_limite": "2026-06-05"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "81-85",
+    "fecha_limite": "2026-06-09"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "86-90",
+    "fecha_limite": "2026-06-10"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "91-95",
+    "fecha_limite": "2026-06-11"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Personas jurídicas y naturales",
+    "nit_digitos": "96-00",
+    "fecha_limite": "2026-06-12"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "1",
+    "fecha_limite": "2026-04-27"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "2",
+    "fecha_limite": "2026-04-28"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "3",
+    "fecha_limite": "2026-05-04"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "4",
+    "fecha_limite": "2026-05-05"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "5",
+    "fecha_limite": "2026-05-06"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "6",
+    "fecha_limite": "2026-05-07"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "7",
+    "fecha_limite": "2026-05-08"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "8",
+    "fecha_limite": "2026-05-11"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "9",
+    "fecha_limite": "2026-05-12"
+  },
+  {
+    "impuesto": "Exógena Nal",
+    "periodo": "Grandes contribuyentes",
+    "nit_digitos": "0",
+    "fecha_limite": "2026-05-13"
+  }
+]

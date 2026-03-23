@@ -1,0 +1,583 @@
+[
+  {
+    "id": "2dOZtUBnYs8ClZj94b3a",
+    "ciiuCodes": [],
+    "tipo": "pn",
+    "nombreCompleto": "Edwin Bernal Arias",
+    "cedula": "1065995400",
+    "dvCedula": "1",
+    "direccion": "LA LOMA",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "no_responsable_iva",
+    "clavePortal": "Edwin123+",
+    "emails": [
+      "ServiciosH.B.@outlook.com"
+    ],
+    "celulares": [
+      "3167227268"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "renta": true,
+      "exogenas": false
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1759892464,
+      "_nanoseconds": 679000000
+    }
+  },
+  {
+    "id": "5pSgoM8TOYw9dNnM4UGM",
+    "tipo": "pn",
+    "nombreCompleto": "Guillermo Alcides Osorio Gutierrez",
+    "cedula": "1062808618",
+    "dvCedula": "7",
+    "direccion": "CR 6 # 4 - 26",
+    "departamento": "Cesar",
+    "municipio": "Becerril",
+    "tipoContribuyente": "",
+    "clavePortal": "Syseg2025+",
+    "emails": [
+      "guilleosorio25@hotmail.com"
+    ],
+    "celulares": [
+      "3184267657"
+    ],
+    "ciiuCodes": [
+      "4520",
+      "4923",
+      "0141",
+      "0150"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "renta": true,
+      "exogenas": false
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760207937,
+      "_nanoseconds": 205000000
+    }
+  },
+  {
+    "id": "A90BpZ6ziZwxE2AhPPrd",
+    "tipo": "pn",
+    "nombreCompleto": "Osiris Bernal Arias",
+    "cedula": "1064797863",
+    "dvCedula": "3",
+    "direccion": "CL 10 A 3A 75 BRR LA GRANJA CRR LA LOMA",
+    "departamento": "Cesar",
+    "municipio": "Chiriguaná",
+    "tipoContribuyente": "no_responsable_iva",
+    "emails": [
+      "osirisleam2508@gmail.com"
+    ],
+    "celulares": [
+      "3126310233"
+    ],
+    "ciiuCodes": [
+      "8299",
+      "0119"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "renta": true,
+      "exogenas": false
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760206178,
+      "_nanoseconds": 235000000
+    },
+    "clavePortal": "Osiris1+"
+  },
+  {
+    "id": "Ila1faheAqZuU3UhReFA",
+    "ciiuCodes": [],
+    "tipo": "pn",
+    "nombreCompleto": "Mariene Correa Ibañez",
+    "cedula": "49779573",
+    "dvCedula": "0",
+    "direccion": "DG 16 E 24   A 47 BRR LOS FUNDADORES",
+    "departamento": "Cesar",
+    "municipio": "Valledupar",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "Hpla53@",
+    "emails": [
+      "contabilidadmaer@hotmail.com"
+    ],
+    "celulares": [
+      "3167392858"
+    ],
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1759878118,
+      "_nanoseconds": 405000000
+    },
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "exogenas": false,
+      "renta": true
+    }
+  },
+  {
+    "id": "MIPQPVa7jIqde3IWp9Tr",
+    "tipo": "pn",
+    "nombreCompleto": "Clemente Junior Retamozo Castro",
+    "cedula": "85471782",
+    "dvCedula": "0",
+    "direccion": "Manzana A Casa 6 Urb Tamacá",
+    "departamento": "Magdalena",
+    "municipio": "Santa Marta",
+    "tipoContribuyente": "no_responsable_iva",
+    "clavePortal": "Camilo20",
+    "emails": [
+      "clementeretamozo@gmail.com"
+    ],
+    "celulares": [
+      "3004046628"
+    ],
+    "ciiuCodes": [
+      "6920",
+      "0141"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "renta": true,
+      "exogenas": false
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760208376,
+      "_nanoseconds": 137000000
+    }
+  },
+  {
+    "id": "NUYA1KmAkxzhi2fqZqfj",
+    "tipo": "pj",
+    "razonSocial": "SYSEG S.A.S.",
+    "nit": "901626520",
+    "dv": "4",
+    "repLegal": "Guillermo Alcides Osorio Gutierrez",
+    "cedulaRep": "1062808618",
+    "dvCedulaRep": "7",
+    "direccion": "CLL 15 8 56 URB MARACASBECERRIL",
+    "departamento": "Cesar",
+    "municipio": "Becerril",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "Syseg2025+",
+    "emails": [
+      "sguajirita6@gmail.com"
+    ],
+    "celulares": [
+      "3184267657"
+    ],
+    "ciiuCodes": [
+      "4290",
+      "8130",
+      "7730",
+      "4663"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "cuatrimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": [
+        {
+          "departamento": "",
+          "municipio": "",
+          "usuario": "",
+          "contrasena": ""
+        }
+      ]
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760544311,
+      "_nanoseconds": 889000000
+    }
+  },
+  {
+    "id": "XlEoOFvDiAyotPJ52RLr",
+    "tipo": "pj",
+    "razonSocial": "JCM SAS",
+    "nit": "900542303",
+    "dv": "7",
+    "repLegal": "Juan Carlos Morón Aparicio \"jm\"",
+    "cedulaRep": "85450630",
+    "dvCedulaRep": "1",
+    "direccion": "Cl 3 No.14-39 Divino niño la Loma de Calentura",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "JCmoron55*",
+    "emails": [
+      "jcmsas.contabilidad@gmail.com",
+      "jcmmoron23@gmail.com"
+    ],
+    "celulares": [
+      "3226134922"
+    ],
+    "ciiuCodes": [
+      "4923",
+      "7830",
+      "8129",
+      "7710"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "bimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": true,
+    "createdAt": {
+      "_seconds": 1760020974,
+      "_nanoseconds": 979000000
+    },
+    "activo": true
+  },
+  {
+    "id": "a3Nr9STPB4ZCeocvrddp",
+    "tipo": "pj",
+    "razonSocial": "MULTISERVICIOS BERNAL S.A.S",
+    "nit": "901374496",
+    "dv": "2",
+    "repLegal": "Osiris Bernal Arias",
+    "cedulaRep": "1064797863",
+    "dvCedulaRep": "3",
+    "direccion": "CL 10 A   3 A   75 BRR LA GRANJA CORR LA LOMA",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "responsable_iva",
+    "emails": [
+      "multiserviciosbernalsas@gmail.com"
+    ],
+    "celulares": [
+      "3008900005"
+    ],
+    "ciiuCodes": [
+      "7710",
+      "4520"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "cuatrimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760206394,
+      "_nanoseconds": 598000000
+    },
+    "clavePortal": "Osiris1+"
+  },
+  {
+    "id": "aT9e6NYmUYmiN8v7sS0F",
+    "tipo": "pn",
+    "cedula": "85450630",
+    "dvCedula": "1",
+    "direccion": "Cl 3 No.14-39 Divino niño la Loma",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "JCmoron55*",
+    "emails": [
+      "jcmmoron23@gmail.com"
+    ],
+    "celulares": [
+      "3226134922"
+    ],
+    "ciiuCodes": [
+      "7710",
+      "4923",
+      "7730",
+      "0162"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "cuatrimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760020622,
+      "_nanoseconds": 517000000
+    },
+    "nombreCompleto": "Juan Carlos Morón Aparicio Jm"
+  },
+  {
+    "id": "eP2oJ52emGTC7dIhuGFT",
+    "tipo": "pj",
+    "razonSocial": "SUMINISTROS MAER S.A.S.",
+    "nit": "901046612",
+    "dv": "4",
+    "repLegal": "Mariene Correa Ibañez",
+    "cedulaRep": "49779573",
+    "dvCedulaRep": "0",
+    "direccion": "DG 16 E 24   A 47 BRR LOS FUNDADORES",
+    "departamento": "Cesar",
+    "municipio": "Valledupar",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "Hpla53@",
+    "emails": [
+      "contabilidadmaer@hotmail.com"
+    ],
+    "celulares": [
+      "3167392858"
+    ],
+    "ciiuCodes": [
+      "4520",
+      "4530",
+      "4512",
+      "4659"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "cuatrimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": [
+        {
+          "departamento": "",
+          "municipio": "",
+          "usuario": "",
+          "contrasena": ""
+        }
+      ]
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1759879885,
+      "_nanoseconds": 237000000
+    }
+  },
+  {
+    "id": "f9k5Mjpcqbn6awhbDnpg",
+    "tipo": "pn",
+    "nombreCompleto": "Álvaro Fernando Riascos Mejía",
+    "cedula": "85471236",
+    "dvCedula": "0",
+    "direccion": "cll 21 22 131 brr jardin",
+    "departamento": "Magdalena",
+    "municipio": "Santa Marta",
+    "tipoContribuyente": "responsable_iva",
+    "emails": [
+      "alvaroriascos2007@hotmail.com"
+    ],
+    "celulares": [
+      "3004522479"
+    ],
+    "ciiuCodes": [
+      "7110",
+      "4921"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": null,
+      "consumo": false,
+      "rteFte": false,
+      "renta": true,
+      "exogenas": false
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": false,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760545274,
+      "_nanoseconds": 839000000
+    },
+    "clavePortal": "Alvaro1+"
+  },
+  {
+    "id": "tjmxWMvuL6L92CX81qFe",
+    "tipo": "pj",
+    "razonSocial": "SERVICIOS DIANA MORÓN SAS SDM",
+    "nit": "900863848",
+    "dv": "6",
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760043246,
+      "_nanoseconds": 16000000
+    },
+    "clavePortal": "Gerente1+",
+    "repLegal": "Diana Marcela Morón Aparicio Dm",
+    "dvCedulaRep": "3",
+    "municipio": "El Paso",
+    "direccion": "Cl 3 No 17 29 Divino Niño La Loma de Calentura",
+    "tipoContribuyente": "responsable_iva",
+    "emails": [
+      "sdmsas.admon@gmail.com"
+    ],
+    "celulares": [
+      "3135217687"
+    ],
+    "cedulaRep": "49746400",
+    "revisionMensual": true,
+    "departamento": "Cesar",
+    "responsabilidadesNacionales": {
+      "consumo": false,
+      "exogenas": true,
+      "iva": "cuatrimestral",
+      "renta": true,
+      "rteFte": true
+    },
+    "ciiuCodes": [
+      "4923",
+      "7710",
+      "3811",
+      "4530"
+    ]
+  },
+  {
+    "id": "vhz1tcKwrv2U00uapK9n",
+    "tipo": "pn",
+    "cedula": "49746400",
+    "dvCedula": "3",
+    "direccion": "Cl 3 No. 17-29 Divino Niño La Loma de Calentura",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "Gerente1+",
+    "emails": [
+      "dimoaca@hotmail.com"
+    ],
+    "celulares": [
+      "3135217687"
+    ],
+    "ciiuCodes": [
+      "4923",
+      "7710",
+      "4530",
+      "4290"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "cuatrimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": []
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1760028306,
+      "_nanoseconds": 121000000
+    },
+    "nombreCompleto": "Diana Marcela Morón Aparicio Dm"
+  },
+  {
+    "id": "vkIS2sVet7TFpWWQxY5e",
+    "tipo": "pj",
+    "nit": "900569142",
+    "dv": "5",
+    "repLegal": "Edwin Bernal Arias",
+    "cedulaRep": "1065995400",
+    "dvCedulaRep": "1",
+    "direccion": "CL 10 4 4 12 BRR COSTA HERMOSA",
+    "departamento": "Cesar",
+    "municipio": "El Paso",
+    "tipoContribuyente": "responsable_iva",
+    "clavePortal": "BernalS25_",
+    "emails": [
+      "facturacionycontabilidad@hermanosbernal.com.co"
+    ],
+    "celulares": [
+      "3167227268"
+    ],
+    "ciiuCodes": [
+      "4312",
+      "4923",
+      "4290"
+    ],
+    "responsabilidadesNacionales": {
+      "iva": "bimestral",
+      "consumo": false,
+      "rteFte": true,
+      "renta": true,
+      "exogenas": true
+    },
+    "responsabilidadesMunicipales": {
+      "ica": [
+        {
+          "departamento": "",
+          "municipio": "",
+          "usuario": "",
+          "contrasena": ""
+        }
+      ]
+    },
+    "revisionMensual": true,
+    "activo": true,
+    "createdAt": {
+      "_seconds": 1759892654,
+      "_nanoseconds": 341000000
+    },
+    "razonSocial": "SERVICIOS HERMANOS BERNAL SHB  S.A.S"
+  }
+]

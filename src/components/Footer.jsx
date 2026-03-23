@@ -1,11 +1,12 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#111827] text-white/60 py-16 border-t border-white/5 relative z-10">
+    <footer className="snap-section bg-[#111827] text-white/60 py-16 border-t border-white/5 relative z-10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 reveal">
           
@@ -28,7 +29,6 @@ export default function Footer() {
               <a href="#servicios" className="hover:text-[#f6b034] transition-colors w-fit">Nuestros Servicios</a>
               <a href="#nosotros" className="hover:text-[#f6b034] transition-colors w-fit">Sobre Nosotros</a>
               <a href="#agendar" className="hover:text-[#f6b034] transition-colors w-fit">Agendar Cita</a>
-              <a href="#portal" className="text-[#f6b034] hover:text-white transition-colors w-fit mt-2 font-medium">Portal Clientes →</a>
             </nav>
           </div>
 
@@ -58,9 +58,12 @@ export default function Footer() {
           <p className="text-xs text-center md:text-left">
             &copy; {currentYear} R3 Consultores. Todos los derechos reservados.
           </p>
-          <div className="flex gap-4 text-xs">
+          <div className="flex gap-4 text-xs items-center">
             <a href="#" className="hover:text-white transition-colors">Privacidad</a>
             <a href="#" className="hover:text-white transition-colors">Términos</a>
+            <Link to="/dashboard" className="text-white/10 hover:text-white/30 transition-colors ml-2" title="Desarrollador">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </Link>
           </div>
         </div>
       </div>

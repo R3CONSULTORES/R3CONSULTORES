@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "/Users/juancamilo/.nvm/versions/node/v20.20.1/bin/npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "sbp_f5f7f22d6a71ed3d6a9854976ce09269896095eb",
+        "PATH": "/Users/juancamilo/.nvm/versions/node/v20.20.1/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    },
+    "figma": {
+      "command": "/Users/juancamilo/.nvm/versions/node/v20.20.1/bin/npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--stdio"
+      ],
+      "env": {
+        "FIGMA_API_KEY": "sbp_c09feca366c81678afab3aa022006a9e2937373a",
+        "PATH": "/Users/juancamilo/.nvm/versions/node/v20.20.1/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    }
+  }
+}

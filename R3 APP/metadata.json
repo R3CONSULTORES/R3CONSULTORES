@@ -1,0 +1,5 @@
+{
+  "name": "R3 CONSULTORES",
+  "description": "A comprehensive tool built with React and TypeScript to streamline the accounting reconciliation process. It allows users to upload financial reports, performs automated cross-checks, identifies discrepancies, validates third-party tax IDs, and generates insightful summary reports.",
+  "requestFramePermissions": []
+}
