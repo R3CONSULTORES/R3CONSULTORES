@@ -41,3 +41,4 @@ La web debe destacar claramente los siguientes servicios:
 2. **Fidelidad al Diseño:** Usa estrictamente la paleta de colores proporcionada, preferiblemente utilizando clases de Tailwind CSS si se requiere código.
 3. **Desarrollo Modular:** Entrega soluciones paso a paso. No intentes programar toda la aplicación en una sola respuesta.
 4. **Enfoque en el Negocio:** Mantén siempre el contexto de que es una firma de contadores públicos en Colombia; el lenguaje debe ser profesional, claro y orientado a la confianza financiera.
+5. **Regla de Despliegue Estricta:** Las subidas a producción deben realizarse EXCLUSIVAMENTE a **Vercel** mediante el comando `npx vercel --prod`. Queda estrictamente prohibido usar flujos o comandos como *deploy a GitHub* salvo petición expresa contraria del usuario.
