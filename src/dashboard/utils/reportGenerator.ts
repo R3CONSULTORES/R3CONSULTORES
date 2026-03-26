@@ -5,7 +5,7 @@ import type { AppState, Diferencia, RetencionFinding, AnalisisCuenta, Validation
 declare const jspdf: any;
 declare const JSZip: any;
 declare const saveAs: any;
-declare const XLSX: any;
+import * as XLSX from 'xlsx';
 
 interface AiAnalysisResult {
     resumenEjecutivo?: string;
@@ -465,8 +465,7 @@ export const generateZipArchive = async (appState: AppState) => {
 
     await Promise.all([
         waitForLibrary('JSZip'),
-        waitForLibrary('saveAs'),
-        waitForLibrary('XLSX')
+        waitForLibrary('saveAs')
     ]);
 
     const zip = new JSZip();

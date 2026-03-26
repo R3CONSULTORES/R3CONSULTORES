@@ -15,16 +15,7 @@ interface SidebarProps {
 const logoIconUrl = '/assets/icono-amarillo.png';  // Ícono cuadrado colapsado (amarillo)
 const logoFullUrl = '/assets/logo-amarillo.png';   // Logo expandido (amarillo — visible sobre fondo oscuro)
 
-// --- CSS FILTERS FOR <img> ICONS ONLY ---
-// These only work correctly on <img> elements (raster/external PNGs), NOT on inline SVGs.
-// SVGs use `currentColor` and get their color from the parent's text-* class.
-
-// White (inactive): turns black source image to white
-const IMG_FILTER_WHITE = 'brightness-0 invert';
-// Amber #f6b034 (active): turns black source image to amber
-const IMG_FILTER_AMBER = '[filter:invert(81%)_sepia(37%)_saturate(988%)_hue-rotate(323deg)_brightness(102%)_contrast(93%)]';
-// Red (logout): turns black source image to red
-const IMG_FILTER_RED = '[filter:brightness(0)_saturate(100%)_invert(32%)_sepia(93%)_saturate(1762%)_hue-rotate(334deg)_brightness(94%)_contrast(96%)]';
+// CSS FILTERS removed as we now use inline SVGs exclusively.
 
 
 const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen, onClose, onLogout }) => {
@@ -48,12 +39,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
     };
 
     // isImgIcon: true when the icon is an <img> tag (needs CSS filter), false for inline SVG (uses currentColor)
-    const NavButton: React.FC<{ module: Module, title: string, isImgIcon?: boolean, children: React.ReactElement }> = ({ module, title, isImgIcon = false, children }) => {
+    const NavButton: React.FC<{ module: Module, title: string, children: React.ReactElement }> = ({ module, title, children }) => {
         const isActive = activeModule === module;
-        
-        // For <img> icons: apply CSS filter to transform the black source image
-        // For SVG icons: the text color on the button already sets currentColor correctly
-        const imgFilter = isImgIcon ? (isActive ? IMG_FILTER_AMBER : IMG_FILTER_WHITE) : '';
 
         return (
              <button
@@ -72,7 +59,6 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                     flex-shrink-0 w-6 h-6 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]
                     text-[#f6b034]
                     ${isActive ? 'scale-110' : 'group-hover:scale-105'}
-                    ${isImgIcon ? IMG_FILTER_AMBER : ''}
                 `}>
                     {children}
                 </span>
@@ -141,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                      </div>
                      
                      {/* <img> icon — needs CSS filter */}
-                     <NavButton module="contable" title="Mesa de Trabajo" isImgIcon={true}><RevisionesIcon /></NavButton>
+                     <NavButton module="contable" title="Mesa de Trabajo"><RevisionesIcon /></NavButton>
                      
                      <div className="my-4 px-6">
                         <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
@@ -149,7 +135,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                      </div>
 
                      {/* <img> icon */}
-                     <NavButton module="clients" title="Clientes" isImgIcon={true}><ClientsIcon /></NavButton>
+                     <NavButton module="clients" title="Clientes"><ClientsIcon /></NavButton>
                      {/* SVG icon */}
                      <NavButton module="tasks" title="Tareas"><TasksIcon /></NavButton>
                      {/* SVG icon */}
@@ -171,8 +157,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                         `}
                         title="Cerrar Sesión"
                     >
-                        {/* <img> icon — needs filter */}
-                        <span className={`flex-shrink-0 w-6 h-6 transition-transform group-hover:scale-110 ${IMG_FILTER_RED}`}>
+                        <span className="flex-shrink-0 w-6 h-6 transition-transform group-hover:scale-110 text-red-400">
                             <LogoutIcon className="w-full h-full" />
                         </span>
                         

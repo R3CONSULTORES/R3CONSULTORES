@@ -2,7 +2,7 @@
 import type { AuxiliarData, DianData, RetencionBaseData, ValidationData, VentasComprasData } from '@/dashboard/types';
 
 // The XLSX library is loaded from a script tag in index.html, so we declare it here.
-declare const XLSX: any;
+import * as XLSX from 'xlsx';
 
 export const calcularDV = (numero: string): string => {
     if (!/^\d+$/.test(numero) || numero.length === 0) return '';
@@ -34,7 +34,7 @@ export const parseExcelFile = (file: File): Promise<any[][]> => {
                 const sheetName = workbook.SheetNames[0];
                 const worksheet = workbook.Sheets[sheetName];
                 const json = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: true });
-                resolve(json);
+                resolve(json as any[][]);
             } catch (error) {
                 console.error("Error al parsear el archivo Excel:", error);
                 reject(error);

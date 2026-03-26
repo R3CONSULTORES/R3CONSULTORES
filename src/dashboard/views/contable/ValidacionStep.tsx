@@ -6,7 +6,7 @@ import { ArrowUpTrayIcon, CheckIcon } from '@/dashboard/components/Icons';
 
 
 // Declare XLSX to be available from script tag
-declare const XLSX: any;
+import * as XLSX from 'xlsx';
 
 const ResultsCard: React.FC<{ title: string, count: number, color: 'green' | 'red' | 'yellow' | 'blue' }> = ({ title, count, color }) => {
     const colors = {
