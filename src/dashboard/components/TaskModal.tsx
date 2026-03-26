@@ -9,7 +9,7 @@ interface TaskModalProps {
     taskToEdit: Task | null;
 }
 
-const inputBaseClasses = "w-full px-3 py-2 border rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 text-sm bg-white text-slate-900 placeholder-slate-400 border-slate-300";
+const inputBaseClasses = "w-full px-3 py-2 border rounded-md shadow-sm focus:ring-[#f6b034] focus:border-[#f6b034] text-sm bg-white/10 text-white placeholder-slate-400 border-white/20";
 
 const TaskModal: React.FC<TaskModalProps> = ({ onClose, onSave, taskToEdit }) => {
     const context = useContext(AppContext);
@@ -74,24 +74,24 @@ const TaskModal: React.FC<TaskModalProps> = ({ onClose, onSave, taskToEdit }) =>
     };
 
     return (
-        <div className="fixed inset-0 bg-slate-900 bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={onClose}>
-            <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
-                <header className="flex justify-between items-center p-5 border-b border-slate-200">
-                    <h2 className="text-2xl font-bold text-slate-800">{taskToEdit ? 'Editar Tarea' : 'Nueva Tarea'}</h2>
-                    <button onClick={onClose} className="p-1 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+        <div className="fixed inset-0 bg-[#0f172a]/80 backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={onClose}>
+            <div className="bg-[#1e293b]/50 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] w-full max-w-2xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
+                <header className="flex justify-between items-center p-5 border-b border-white/10">
+                    <h2 className="text-2xl font-bold text-white">{taskToEdit ? 'Editar Tarea' : 'Nueva Tarea'}</h2>
+                    <button onClick={onClose} className="p-1 rounded-full text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
                         <XMarkIcon className="w-6 h-6" />
                     </button>
                 </header>
 
-                <main className="p-6 overflow-y-auto space-y-5">
+                <main className="p-6 overflow-y-auto space-y-5 custom-scrollbar-dark">
                     <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">Título de la Tarea</label>
+                        <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Título de la Tarea</label>
                         <input type="text" name="title" value={taskData.title} onChange={handleChange} className={inputBaseClasses} placeholder="Ej: Declaración de Renta" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Cliente</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Cliente</label>
                             <select name="clientId" value={taskData.clientId || ''} onChange={handleChange} className={inputBaseClasses}>
                                 <option value="">General (Sin cliente)</option>
                                 {clients.map(client => (
@@ -102,13 +102,13 @@ const TaskModal: React.FC<TaskModalProps> = ({ onClose, onSave, taskToEdit }) =>
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Fecha de Vencimiento</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Fecha de Vencimiento</label>
                             <input type="date" name="dueDate" value={taskData.dueDate} onChange={handleChange} className={inputBaseClasses} />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">Estado</label>
+                        <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Estado</label>
                         <select name="status" value={taskData.status} onChange={handleChange} className={inputBaseClasses}>
                             <option value="borrador">Borrador</option>
                             <option value="por-presentar">Por Presentar</option>
@@ -118,7 +118,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ onClose, onSave, taskToEdit }) =>
                     </div>
 
                      <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">Comentarios</label>
+                        <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Comentarios</label>
                         <div className="space-y-2">
                             {(taskData.comments || []).map((comment, index) => (
                                 <div key={index} className="flex items-center gap-2">
@@ -135,20 +135,20 @@ const TaskModal: React.FC<TaskModalProps> = ({ onClose, onSave, taskToEdit }) =>
                                 </div>
                             ))}
                         </div>
-                        <button type="button" onClick={addCommentField} className="mt-2 text-sm text-slate-800 font-semibold hover:text-amber-600 flex items-center gap-1">
+                        <button type="button" onClick={addCommentField} className="mt-2 text-sm text-white font-semibold hover:text-amber-600 flex items-center gap-1">
                             <PlusIcon className="w-4 h-4" />Agregar comentario
                         </button>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-600 mb-1">Enlace a Drive</label>
+                        <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Enlace a Drive</label>
                         <input type="url" name="driveLink" value={taskData.driveLink} onChange={handleChange} className={inputBaseClasses} placeholder="https://docs.google.com/..." />
                     </div>
 
                 </main>
                 
-                 <footer className="p-5 bg-slate-50 border-t border-slate-200 text-right">
-                    <button onClick={handleSave} className="w-full md:w-auto bg-slate-900 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-slate-700 transition-colors duration-200">
+                 <footer className="p-5 bg-white/5 border-t border-white/10 text-right">
+                    <button onClick={handleSave} className="w-full md:w-auto bg-[#f6b034] text-[#000000] font-bold py-3 px-8 rounded-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
                         Guardar Tarea
                     </button>
                 </footer>

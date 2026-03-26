@@ -27,10 +27,10 @@ const CopyButton: React.FC<{ textToCopy: string }> = ({ textToCopy }) => {
     return (
         <button
             onClick={handleCopy}
-            className="ml-2 p-1 rounded-md hover:bg-slate-200 transition-colors"
+            className="ml-2 p-1 rounded-md hover:bg-[#f6b034]/10 text-slate-400 hover:text-[#f6b034] transition-all"
             title={`Copiar ${textToCopy}`}
         >
-            {copied ? <CheckIcon className="w-4 h-4 text-green-600" /> : <CopyIcon />}
+            {copied ? <CheckIcon className="w-4 h-4 text-emerald-600" /> : <CopyIcon className="w-4 h-4" />}
         </button>
     );
 };
@@ -59,7 +59,7 @@ const ClientCard: React.FC<{ client: Client, onEdit: (client: Client) => void, o
 
 
     return (
-        <div className={`bg-white rounded-lg shadow-md border border-slate-200 transition-all duration-300 ${client.status === 'Inactivo' ? 'opacity-60 bg-slate-50' : ''}`}>
+        <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md ${client.status === 'Inactivo' ? 'opacity-60 grayscale' : ''}`}>
             {/* Card Header */}
             <div className="flex justify-between items-center p-4 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
                 <div>
@@ -94,7 +94,7 @@ const ClientCard: React.FC<{ client: Client, onEdit: (client: Client) => void, o
                             </div>
                             <InfoField label="Nombre/Razón Social">{displayName}</InfoField>
                             <InfoField label="Cédula/NIT">
-                                <span className="inline-flex items-center bg-slate-100 px-2 py-0.5 rounded-md">
+                                <span className="inline-flex items-center bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md font-mono text-xs">
                                     {displayIdWithDv}
                                     <CopyButton textToCopy={displayId || ''} />
                                 </span>
@@ -103,7 +103,7 @@ const ClientCard: React.FC<{ client: Client, onEdit: (client: Client) => void, o
                             <InfoField label="Ubicación">{`${client.municipio}, ${client.departamento}`}</InfoField>
                             <InfoField label="Tipo Contribuyente">{client.tipoContribuyente}</InfoField>
                             <InfoField label="Clave Portal">
-                                <span className="inline-flex items-center bg-slate-100 px-2 py-0.5 rounded-md">
+                                <span className="inline-flex items-center bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md font-mono text-xs">
                                     {client.clavePortal}
                                     <CopyButton textToCopy={client.clavePortal} />
                                 </span>
@@ -457,17 +457,17 @@ Analiza este RUT colombiano con precisión de auditor:
                         />
                         <label 
                             htmlFor="rut-upload" 
-                            className="bg-white text-slate-700 border border-slate-300 font-bold py-2 px-4 rounded-lg shadow-sm hover:bg-slate-50 transition-colors duration-200 flex items-center gap-2 cursor-pointer"
+                            className="bg-white text-slate-700 border border-[#f6b034]/30 font-bold py-2.5 px-6 rounded-xl shadow-sm hover:bg-[#f6b034]/5 hover:border-[#f6b034] transition-all duration-300 flex items-center gap-2 cursor-pointer text-sm"
                         >
-                            <ArrowUpTrayIcon className="w-5 h-5 text-slate-500" />
-                            Crear desde RUT
+                            <ArrowUpTrayIcon className="w-5 h-5 text-[#f6b034]" />
+                            Analizar RUT con IA
                         </label>
                     </div>
                     <button 
                         onClick={handleOpenAddModal}
-                        className="bg-slate-900 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-colors duration-200 flex items-center gap-2"
+                        className="bg-[#1e293b] text-white font-bold py-2.5 px-6 rounded-xl shadow-lg hover:bg-[#0f172a] hover:shadow-[#f6b034]/20 transition-all duration-300 flex items-center gap-2 text-sm"
                     >
-                        <PlusIcon />
+                        <PlusIcon className="w-5 h-5" />
                         Nuevo Cliente
                     </button>
                 </div>

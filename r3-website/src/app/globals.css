@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-r3-gold: #f6b034;
+  --color-r3-slate: #1e293b;
+  --color-r3-bg: #f8fafc;
+  --color-r3-text: #111827;
+  --color-r3-muted: #64748b;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+.ghost-btn {
+    border-width: 2px;
+    transition-property: all;
+    transition-duration: 300ms;
+}
+.ghost-btn-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+.ghost-btn-light:hover {
+    background-color: white;
+    color: #1e293b;
+}
+.ghost-btn-dark {
+    border-color: rgba(30, 41, 59, 0.2);
+    color: #1e293b;
+}
+.ghost-btn-dark:hover {
+    background-color: #1e293b;
+    color: white;
+}
+.ghost-btn-gold {
+    border-color: #f6b034;
+    color: #f6b034;
+}
+.ghost-btn-gold:hover {
+    background-color: #f6b034;
+    color: #1e293b;
+    border-color: transparent;
+    box-shadow: 0 20px 25px -5px rgba(246, 176, 52, 0.2);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition-property: all;
+    transition-duration: 800ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 150ms; }
+.reveal-delay-2 { transition-delay: 300ms; }
+.reveal-delay-3 { transition-delay: 450ms; }
+
+.active-pill {
+    background-color: #f6b034 !important;
+    color: #1e293b !important;
+}
+
+/* Dashboard animation utilities */
+@keyframes enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-enter {
+    animation: enter 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* ===== Scroll Snap — Slide Layout ===== */
+.snap-container {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+.snap-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+}
+
+/* 📱 MOBILE OVERRIDES — Ensure slides fit within 100dvh */
+@media (max-width: 1024px) {
+    .snap-container {
+        height: 100dvh;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+    }
+    .snap-section {
+        min-height: 100dvh;
+        height: 100dvh;
+        scroll-snap-align: start;
+        padding-top: 2rem; /* Compact padding to fit content */
+        padding-bottom: 2rem;
+        justify-content: center; /* Volver a centrar */
+        overflow-y: auto; /* Fallback si algo no cabe */
+    }
+}
+
+/* ===== Text Entrance Animations ===== */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes lineExpand {
+    from { width: 0; }
+    to { width: 6rem; }
+}
+@keyframes charReveal {
+    from { opacity: 0; transform: translateY(20px) rotateX(-20deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+.anim-slide-up {
+    animation: slideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.anim-fade-scale {
+    animation: fadeInScale 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.anim-line {
+    animation: lineExpand 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.anim-delay-1 { animation-delay: 200ms; }
+.anim-delay-2 { animation-delay: 400ms; }
+.anim-delay-3 { animation-delay: 600ms; }
+.anim-delay-4 { animation-delay: 800ms; }
+
+/* Pre-animation state */
+.anim-hidden {
+    opacity: 0;
+}
+
+/* Hide Next.js Dev Indicator */
+nextjs-portal {
+  display: none !important;
+}

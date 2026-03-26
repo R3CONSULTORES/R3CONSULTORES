@@ -25,7 +25,7 @@ const ModuleCard: React.FC<{
         `}
     >
         <div className="flex items-start justify-between mb-4">
-            <div className={`p-3 rounded-lg ${status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600 group-hover:bg-[#f6b034]/20 group-hover:text-[#1e293b]'}`}>
+            <div className={`p-3 rounded-lg ${status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-white text-slate-400 border border-slate-100 group-hover:bg-[#f6b034]/20 group-hover:text-[#1e293b] group-hover:border-transparent transition-all'}`}>
                 {icon}
             </div>
             {status === 'completed' && <CheckCircleIcon className="w-6 h-6 text-green-500" />}
@@ -357,45 +357,9 @@ const RevisionWorkspace: React.FC = () => {
 
                         {/* Period Configuration */}
                         <div className="p-5 bg-slate-50 rounded-lg border border-slate-200 space-y-5">
-                            <div>
-                                <label className="block text-sm font-bold text-[#1e293b] mb-2">2. Periodicidad del IVA</label>
-                                <div className="flex rounded-md shadow-sm" role="group">
-                                    <button
-                                        onClick={() => setPeriodType('mensual')}
-                                        className={`flex-1 px-4 py-2 text-sm font-medium border rounded-l-lg transition-colors ${
-                                            periodType === 'mensual' 
-                                            ? 'bg-[#1e293b] text-white border-[#1e293b]' 
-                                            : 'bg-white text-[#1e293b] border-[#1e293b] hover:bg-[#1e293b]/5'
-                                        }`}
-                                    >
-                                        Mensual
-                                    </button>
-                                    <button
-                                        onClick={() => setPeriodType('bimestral')}
-                                        className={`flex-1 px-4 py-2 text-sm font-medium border-t border-b border-[#1e293b] transition-colors ${
-                                            periodType === 'bimestral' 
-                                            ? 'bg-[#1e293b] text-white' 
-                                            : 'bg-white text-[#1e293b] hover:bg-[#1e293b]/5'
-                                        }`}
-                                    >
-                                        Bimestral
-                                    </button>
-                                    <button
-                                        onClick={() => setPeriodType('cuatrimestral')}
-                                        className={`flex-1 px-4 py-2 text-sm font-medium border rounded-r-lg transition-colors ${
-                                            periodType === 'cuatrimestral' 
-                                            ? 'bg-[#1e293b] text-white border-[#1e293b]' 
-                                            : 'bg-white text-[#1e293b] border-[#1e293b] hover:bg-[#1e293b]/5'
-                                        }`}
-                                    >
-                                        Cuatrimestral
-                                    </button>
-                                </div>
-                            </div>
-
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
-                                    <label className="block text-sm font-bold text-[#1e293b] mb-2">3. Período General</label>
+                                    <label className="block text-sm font-bold text-[#1e293b] mb-2">2. Período General</label>
                                     {/* FIX: Explicit white background and dark text */}
                                     <select 
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-[#f6b034] focus:border-[#f6b034] outline-none bg-white text-gray-900"
@@ -409,7 +373,7 @@ const RevisionWorkspace: React.FC = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-bold text-[#1e293b] mb-2">4. Meses a Revisar (Selección)</label>
+                                    <label className="block text-sm font-bold text-[#1e293b] mb-2">3. Meses a Revisar</label>
                                     {/* FIX: White background container */}
                                     <div className="grid grid-cols-2 gap-2 bg-white p-2 border border-gray-300 rounded-lg">
                                         {monthsInPeriod.map(mIndex => (
@@ -453,14 +417,13 @@ const RevisionWorkspace: React.FC = () => {
         const areContableFilesLoaded = !!(appState.files.auxiliar && appState.files.dian && appState.files.ventas && appState.files.compras);
 
         let contableProgress = 0;
-        let contableStatusText = "Pendiente";
+        let contableStatusText = "Auditoría Pendiente";
         let contableRisks = 0;
 
         if (isContableComplete) {
             contableProgress = 100;
-            contableStatusText = "Auditoría Finalizada";
+            contableStatusText = "Auditado";
             const res = appState.conciliacionResultados!;
-            // Sumar hallazgos reportados en las 4 categorías
             contableRisks = (res.ingresos?.length || 0) + (res.ivaGen?.length || 0) + (res.compras?.length || 0) + (res.ivaDesc?.length || 0);
         } else if (areContableFilesLoaded) {
             contableProgress = 50;
@@ -470,18 +433,18 @@ const RevisionWorkspace: React.FC = () => {
         // 2. Revisión IVA
         const isIvaComplete = !!appState.ivaLiquidationResult;
         const areIvaFilesLoaded = !!(appState.files.iva_auxiliar && appState.files.iva_dian);
-        // Using size check on maps or checking if they are not empty objects (if maps were converted)
         const hasIvaClassification = (appState.incomeAccountVatClassification && appState.incomeAccountVatClassification.size > 0);
 
         let ivaProgress = 0;
         let ivaStatusText = "Pendiente";
+        const ivaTotalPagar = appState.ivaLiquidationResult?.resumen?.saldoAPagar || 0;
 
         if (isIvaComplete) {
             ivaProgress = 100;
-            ivaStatusText = "Liquidación Lista";
+            ivaStatusText = "Liquidado";
         } else if (hasIvaClassification) {
             ivaProgress = 60;
-            ivaStatusText = "Clasificación en curso";
+            ivaStatusText = "En Clasificación";
         } else if (areIvaFilesLoaded) {
             ivaProgress = 30;
             ivaStatusText = "Archivos Cargados";
@@ -494,222 +457,237 @@ const RevisionWorkspace: React.FC = () => {
         let reteProgress = 0;
         let reteStatusText = "Pendiente";
         let reteRisks = 0;
+        const totalRteFte = appState.retencionesResult?.filter(r => !r.omitted).reduce((acc, curr) => acc + (curr.retencionAplicada || 0), 0) || 0;
 
         if (isReteComplete) {
             reteProgress = 100;
-            reteStatusText = "Auditoría Finalizada";
+            reteStatusText = "Auditado";
             reteRisks = appState.retencionesResult?.filter(r => !r.omitted).length || 0;
         } else if (areReteFilesLoaded) {
             reteProgress = 40;
             reteStatusText = "Archivos Cargados";
         }
 
-        // 4. Bloqueo Proyección
+        // 4. ICA Anual (Merged to workspace)
+        const icaStatusText = activeProjection?.status === 'Cerrado' ? 'Cerrado' : (activeProjection ? 'En Curso' : 'Pendiente');
+        const icaTotal = activeProjection?.metaDefinida || 0;
+
+        // 5. Bloqueo Proyección (Flujo de Caja)
         const isProjectionUnlocked = contableProgress === 100 && ivaProgress === 100 && reteProgress === 100;
 
-        return (
-            <div>
-                <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-                    <div>
-                        <h1 className="text-3xl font-bold text-[#1e293b]">Panel de Revisión</h1>
-                        <p className="text-slate-500 text-lg">
-                            <span className="font-semibold text-slate-700">{appState.razonSocial}</span> 
-                            <span className="mx-2">•</span> 
-                            {appState.periodo}
-                        </p>
+        // Custom Node Component for the Taller
+        const WorkspaceNode = ({ title, icon, progress, statusText, risks, primaryMetric, primaryValue, onClick, isLocked = false, isIca = false }: any) => {
+            return (
+                <div 
+                    onClick={isLocked ? undefined : onClick}
+                    className={`relative w-72 p-5 rounded-2xl transition-all duration-300 flex flex-col justify-between group
+                        ${isLocked ? 'bg-white/50 border-2 border-dashed border-slate-100 cursor-not-allowed opacity-70' : 'bg-[#1e293b]/80 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.2)] cursor-pointer hover:-translate-y-2 hover:border-[#f6b034]/50 hover:shadow-[#f6b034]/10'}
+                    `}
+                >
+                    <div className="flex justify-between items-start mb-4">
+                        <div className={`p-3 rounded-xl ${isLocked ? 'bg-slate-200 text-slate-400' : 'bg-[#f6b034]/20 text-[#f6b034] shadow-[0_0_15px_rgba(246,176,52,0.15)]'}`}>
+                            {icon}
+                        </div>
+                        {isLocked ? (
+                            <span className="bg-slate-100 text-slate-400 text-[10px] font-bold px-2 py-1 rounded-full border border-slate-200">Bloqueado</span>
+                        ) : progress === 100 || isIca ? (
+                            <span className="bg-[#f6b034]/10 text-[#f6b034] text-[10px] font-bold px-2 py-1 rounded-full border border-[#f6b034]/20 flex items-center gap-1">
+                                <CheckCircleIcon className="w-3 h-3" /> {isIca ? icaStatusText : 'Completado'}
+                            </span>
+                        ) : (
+                            <span className="bg-white/10 text-slate-300 text-[10px] font-bold px-2 py-1 rounded-full border border-white/10">
+                                {statusText}
+                            </span>
+                        )}
                     </div>
-                    <div className="flex flex-wrap gap-3">
-                         <button 
-                            onClick={() => setStep('config')} 
-                            className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-[#f6b034] bg-white border border-slate-300 px-4 py-2 rounded-lg transition-colors shadow-sm"
-                        >
-                            <ConfigIcon className="w-5 h-5" />
-                            Configuración
-                        </button>
-                        <button onClick={() => setStep('setup')} className="text-sm text-slate-500 hover:text-slate-800 underline self-center">
-                            Cambiar Cliente/Periodo
-                        </button>
-                    </div>
-                </header>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    {/* 1. Contable */}
-                    <div 
-                        onClick={() => setStep('contable')}
-                        className="relative bg-white p-5 rounded-2xl shadow-sm border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-b-4 hover:border-b-[#f6b034] group h-full flex flex-col justify-between"
-                    >
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-3 rounded-full bg-[#f6b034]/10 text-[#f6b034]">
-                                <ReviewIcon className="w-6 h-6" />
+                    
+                    <div className="mb-4">
+                        <h3 className={`text-lg font-bold mb-1 ${isLocked ? 'text-slate-500' : 'text-white'}`}>{title}</h3>
+                        {!isLocked && primaryMetric && (
+                            <div className="mt-2 bg-[#0f172a]/50 rounded-lg p-2 border border-white/5">
+                                <p className="text-[10px] text-slate-400 uppercase tracking-wider">{primaryMetric}</p>
+                                <p className="text-sm font-mono font-bold text-[#f6b034]">{formatCurrency(primaryValue)}</p>
                             </div>
-                            {contableProgress === 100 ? (
-                                 <span className={`text-[10px] font-bold px-2 py-1 rounded-full border flex items-center gap-1 ${contableRisks === 0 ? 'bg-green-50 text-green-700 border-green-100' : 'bg-red-50 text-red-600 border-red-100'}`}>
-                                    {contableRisks === 0 ? <><CheckCircleIcon className="w-3 h-3" /> Sin Riesgos</> : `${contableRisks} Riesgos`}
-                                </span>
-                            ) : (
-                                <span className="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200">
-                                    Pendiente
-                                </span>
-                            )}
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-[#1e293b] mb-1">Revisión Contable</h3>
-                            <div className="flex items-center gap-2 mb-4">
-                                <div className={`w-2 h-2 rounded-full ${contableProgress === 100 ? 'bg-green-500' : 'bg-amber-500'}`}></div>
-                                <p className="text-xs font-medium text-slate-500">
-                                    Estado: <span className={contableProgress === 100 ? 'text-green-600' : 'text-slate-700'}>
-                                        {contableStatusText}
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="mt-auto">
-                            <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                                <span>Progreso</span>
-                                <span>{contableProgress}%</span>
-                            </div>
-                            <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                                <div className="bg-[#f6b034] h-1.5 rounded-full transition-all duration-500" style={{ width: `${contableProgress}%` }}></div>
-                            </div>
-                        </div>
+                        )}
+                        {isLocked && (
+                            <p className="text-xs text-slate-400 mt-2">Complete los módulos anteriores para desbloquear.</p>
+                        )}
                     </div>
 
-                    {/* 2. IVA */}
-                    <div 
-                        onClick={() => setStep('iva')}
-                        className="relative bg-white p-5 rounded-2xl shadow-sm border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-b-4 hover:border-b-[#f6b034] group h-full flex flex-col justify-between"
-                    >
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-3 rounded-full bg-[#f6b034]/10 text-[#f6b034]">
-                                <PropertyTaxIcon className="w-6 h-6" />
+                    {!isLocked && (
+                        <div className="mt-auto border-t border-white/10 pt-4 flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] text-slate-300 font-medium">Progreso</span>
+                                <div className="w-16 bg-white/10 rounded-full h-1.5 overflow-hidden">
+                                    <div className="bg-[#f6b034] h-1.5 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                                </div>
                             </div>
-                             {ivaProgress === 100 ? (
-                                 <span className="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full border border-green-100 flex items-center gap-1">
-                                    <CheckCircleIcon className="w-3 h-3" /> Completado
-                                </span>
-                            ) : (
-                                <span className="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200">
-                                    En Proceso
-                                </span>
-                            )}
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-[#1e293b] mb-1">Revisión de IVA</h3>
-                            <div className="flex items-center gap-2 mb-4">
-                                <div className={`w-2 h-2 rounded-full ${ivaProgress === 100 ? 'bg-green-500' : 'bg-amber-500'}`}></div>
-                                <p className="text-xs font-medium text-slate-500">
-                                    Estado: <span className={ivaProgress === 100 ? 'text-green-600' : 'text-slate-700'}>
-                                        {ivaStatusText}
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="mt-auto">
-                            <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                                <span>Progreso</span>
-                                <span>{ivaProgress}%</span>
-                            </div>
-                            <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                                <div className="bg-[#f6b034] h-1.5 rounded-full transition-all duration-500" style={{ width: `${ivaProgress}%` }}></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3. Retenciones */}
-                    <div 
-                        onClick={() => setStep('retenciones')}
-                        className="relative bg-white p-5 rounded-2xl shadow-sm border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-b-4 hover:border-b-[#f6b034] group h-full flex flex-col justify-between"
-                    >
-                        <div className="flex justify-between items-start mb-4">
-                            <div className="p-3 rounded-full bg-[#f6b034]/10 text-[#f6b034]">
-                                <ScaleIcon className="w-6 h-6" />
-                            </div>
-                             {reteProgress === 100 ? (
-                                 <span className={`text-[10px] font-bold px-2 py-1 rounded-full border flex items-center gap-1 ${reteRisks === 0 ? 'bg-green-50 text-green-700 border-green-100' : 'bg-red-50 text-red-600 border-red-100'}`}>
-                                    {reteRisks === 0 ? <><CheckCircleIcon className="w-3 h-3" /> Sin Riesgos</> : `${reteRisks} Hallazgos`}
-                                </span>
-                            ) : (
-                                <span className="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200">
-                                    Pendiente
-                                </span>
-                            )}
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-[#1e293b] mb-1">Revisión Retenciones</h3>
-                            <div className="flex items-center gap-2 mb-4">
-                                <div className={`w-2 h-2 rounded-full ${reteProgress === 100 ? 'bg-green-500' : 'bg-amber-500'}`}></div>
-                                <p className="text-xs font-medium text-slate-500">
-                                    Estado: <span className={reteProgress === 100 ? 'text-green-600' : 'text-slate-700'}>
-                                        {reteStatusText}
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="mt-auto">
-                            <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                                <span>Progreso</span>
-                                <span>{reteProgress}%</span>
-                            </div>
-                            <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                                <div className="bg-[#f6b034] h-1.5 rounded-full transition-all duration-500" style={{ width: `${reteProgress}%` }}></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 4. Proyecciones (Locked or Active) */}
-                    {activeProjection ? (
-                        <ProjectionTrackingCard projection={activeProjection} onClick={() => setStep('iva')} />
-                    ) : isProjectionUnlocked ? (
-                        <div 
-                            onClick={() => setStep('iva')}
-                            className="bg-green-50 p-5 rounded-2xl border-2 border-dashed border-green-300 cursor-pointer hover:bg-green-100 transition-all flex flex-col items-center justify-center text-center h-full min-h-[200px] gap-3 group"
-                        >
-                            <div className="p-3 bg-white rounded-full text-green-600 shadow-sm group-hover:scale-110 transition-transform">
-                                <BoltIcon className="w-6 h-6" />
-                            </div>
-                            <div>
-                                <h3 className="text-sm font-bold text-green-800 mb-1">Simulador Disponible</h3>
-                                <p className="text-xs text-green-700 max-w-[200px] mx-auto">
-                                    Todo listo. Haga clic para iniciar la proyección de Flujo de Caja e IVA.
-                                </p>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="bg-gray-50/80 p-5 rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center text-center h-full min-h-[200px] gap-3">
-                            <div className="p-3 bg-gray-100 rounded-full">
-                                {/* Lock Icon SVG */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-gray-400">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-500 mb-1">Optimización de Flujo de Caja</h3>
-                                <p className="text-xs text-gray-400 max-w-[200px] mx-auto">
-                                    Módulo bloqueado. Complete los 3 módulos anteriores para desbloquear.
-                                </p>
-                            </div>
+                            <button className="text-white hover:text-[#f6b034] transition-colors p-1" title="Generar Micro-Informe PDF" onClick={(e) => { e.stopPropagation(); alert("Generando micro-informe PDF..."); }}>
+                                <DocumentChartBarIcon className="w-5 h-5" />
+                            </button>
                         </div>
                     )}
                 </div>
+            );
+        };
 
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        return (
+            <div className="pb-20">
+                {/* HEADER WIDGET & TÍTULOS */}
+                <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">
                     <div>
-                        <h3 className="text-lg font-bold text-[#1e293b]">Informe Unificado</h3>
-                        <p className="text-slate-600">Genere un informe consolidado con los hallazgos de todos los módulos completados.</p>
+                        <h1 className="text-3xl font-bold text-[#1e293b]">Taller de Liquidación</h1>
+                        <p className="text-slate-500 text-lg mt-1">Ecosistema modular de validación e impuestos.</p>
                     </div>
-                    <div className="flex gap-3">
+
+                    {/* WIDGET DE RESUMEN TEMPORAL (LIQUID GLASS) */}
+                    <div className="bg-[#1e293b] backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-xl flex flex-wrap items-center gap-4 sm:gap-6 relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
+                        <div className="relative z-10 flex items-center gap-6">
+                            <div>
+                                <p className="text-[10px] text-[#f6b034] uppercase tracking-wider font-bold mb-0.5">Contexto Activo</p>
+                                <p className="text-sm text-white font-semibold leading-tight">{appState.razonSocial}</p>
+                                <p className="text-xs text-slate-400">{appState.periodo}</p>
+                            </div>
+                            <div className="h-10 w-px bg-white/10"></div>
+                            <div>
+                                <p className="text-[10px] text-slate-400 uppercase tracking-wider font-bold mb-0.5">IVA Prelim</p>
+                                <p className="text-sm text-white font-mono font-bold leading-tight">{formatCurrency(ivaTotalPagar)}</p>
+                            </div>
+                            <div className="h-10 w-px bg-white/10"></div>
+                            <div>
+                                <p className="text-[10px] text-slate-400 uppercase tracking-wider font-bold mb-0.5">RteFte Prelim</p>
+                                <p className="text-sm text-white font-mono font-bold leading-tight">{formatCurrency(totalRteFte)}</p>
+                            </div>
+                            <div className="h-10 w-px bg-white/10"></div>
+                            <div className="flex gap-2">
+                                <button onClick={() => setStep('config')} className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Configuración">
+                                    <ConfigIcon className="w-5 h-5" />
+                                </button>
+                                <button onClick={() => setStep('setup')} className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Cambiar Cliente">
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                {/* THE NODE GRAPH CANVAS */}
+                <div className="relative w-full max-w-5xl mx-auto py-10 flex flex-col items-center">
+                    {/* Level 1: Contable */}
+                    <div className="z-10 relative">
+                        <WorkspaceNode 
+                            title="Auditoría Contable" 
+                            icon={<ReviewIcon className="w-7 h-7" />} 
+                            progress={contableProgress} 
+                            statusText={contableStatusText} 
+                            risks={contableRisks}
+                            primaryMetric={contableProgress === 100 ? "Hallazgos" : undefined}
+                            primaryValue={contableProgress === 100 ? contableRisks : undefined}
+                            onClick={() => setStep('contable')} 
+                        />
+                    </div>
+
+                    {/* Connecting Array down to Level 2 */}
+                    <div className="relative w-full h-24 my-2 opacity-60">
+                         {/* Central trunk */}
+                         <div className="absolute left-1/2 top-0 bottom-1/2 w-0.5 bg-gradient-to-b from-[#f6b034] to-[#f6b034]/40 -translate-x-1/2"></div>
+                         {/* Horizontal distributor */}
+                         <div className="absolute left-[16%] right-[16%] top-1/2 h-0.5 bg-[#f6b034]/40"></div>
+                         {/* Drops to nodes */}
+                         <div className="absolute left-[16%] top-1/2 bottom-0 w-0.5 bg-gradient-to-b from-[#f6b034]/40 to-[#f6b034]/80 text-[#f6b034] flex justify-center items-end">
+                            <div className="w-2 h-2 rounded-full bg-[#f6b034] translate-y-1 shadow-[0_0_8px_#f6b034]"></div>
+                         </div>
+                         <div className="absolute left-1/2 top-1/2 bottom-0 w-0.5 bg-gradient-to-b from-[#f6b034]/40 to-[#f6b034]/80 text-[#f6b034] flex justify-center items-end -translate-x-1/2">
+                            <div className="w-2 h-2 rounded-full bg-[#f6b034] translate-y-1 shadow-[0_0_8px_#f6b034]"></div>
+                         </div>
+                         <div className="absolute right-[16%] top-1/2 bottom-0 w-0.5 bg-gradient-to-b from-[#f6b034]/40 to-[#f6b034]/80 text-[#f6b034] flex justify-center items-end">
+                            <div className="w-2 h-2 rounded-full bg-[#f6b034] translate-y-1 shadow-[0_0_8px_#f6b034]"></div>
+                         </div>
+                    </div>
+
+                    {/* Level 2: Liquidación Tax Cluster (IVA, Retenciones, ICA) */}
+                    <div className="z-10 w-full flex flex-col md:flex-row justify-between gap-6 relative">
+                        {/* Subtle background highlight for the cluster block */}
+                        <div className="absolute inset-[-2rem] bg-[#1e293b]/[0.02] rounded-3xl border border-[#1e293b]/5 -z-10 pointer-events-none"></div>
+
+                        <WorkspaceNode 
+                            title="Revisión de IVA" 
+                            icon={<PropertyTaxIcon className="w-7 h-7" />} 
+                            progress={ivaProgress} 
+                            statusText={ivaStatusText} 
+                            primaryMetric="Saldo a Pagar"
+                            primaryValue={ivaTotalPagar}
+                            onClick={() => setStep('iva')} 
+                        />
+                         <WorkspaceNode 
+                            title="Revisión Retenciones" 
+                            icon={<ScaleIcon className="w-7 h-7" />} 
+                            progress={reteProgress} 
+                            statusText={reteStatusText} 
+                            risks={reteRisks}
+                            primaryMetric="Total RteFte"
+                            primaryValue={totalRteFte}
+                            onClick={() => setStep('retenciones')} 
+                        />
+                         <WorkspaceNode 
+                            title="ICA Anual" 
+                            icon={
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                                </svg>
+                            } 
+                            progress={activeProjection ? 100 : 0} 
+                            statusText={icaStatusText} 
+                            primaryMetric="Proyección ICA"
+                            primaryValue={icaTotal}
+                            isIca={true}
+                            onClick={() => {
+                                // Transition to Proyecciones ICA. If context function exists to flip module:
+                                context.setActiveModule('ica-anual');
+                            }} 
+                        />
+                    </div>
+
+                    {/* Connecting line down to Level 3 */}
+                    <div className="relative w-full h-20 my-2 opacity-60">
+                         {/* Gather from 3 nodes - for simplicity just straight down from center node (Retenciones) */}
+                         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#f6b034]/80 to-[#f6b034]/20 border-r border-dashed border-[#f6b034] -translate-x-1/2 shadow-[0_0_10px_#f6b034]"></div>
+                         <div className="absolute left-1/2 bottom-0 w-2 h-2 rounded-full bg-[#f6b034]/50 translate-y-1 -translate-x-1/2"></div>
+                    </div>
+
+                    {/* Level 3: Flujo de Caja (Proyecciones) */}
+                    <div className="z-10 relative">
+                        <WorkspaceNode 
+                            title="Flujo de Caja" 
+                            icon={<TrendingUpIcon className="w-7 h-7" />} 
+                            progress={0} 
+                            statusText="Bloqueado" 
+                            isLocked={!isProjectionUnlocked}
+                            onClick={() => context.setActiveModule('proyecciones-portfolio')} 
+                        />
+                    </div>
+                </div>
+
+                <div className="mt-8 bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-xl shadow-lg mx-auto max-w-5xl group hover:border-[#f6b034]/30 transition-colors">
+                    <div>
+                        <h3 className="text-xl font-bold text-slate-800">Informe Maestro Consolidado</h3>
+                        <p className="text-slate-500 mt-1">Generar documento maestro con auditoría integral, hallazgos y liquidaciones.</p>
+                    </div>
+                    <div className="flex gap-4">
                         <button 
                              onClick={handleFullRevision}
-                             className="px-6 py-3 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-100 transition-colors"
+                             className="px-6 py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl hover:bg-slate-200 transition-colors"
                         >
-                            Revisión Guiada (Paso a Paso)
+                            Ver Resumen Global
                         </button>
                         <button 
                             onClick={() => setStep('informe')}
-                            className="px-6 py-3 bg-[#f6b034] text-slate-900 font-bold rounded-lg hover:bg-amber-400 transition-colors flex items-center gap-2 shadow-md"
+                            className="px-8 py-3 bg-[#1e293b] text-white font-bold rounded-xl hover:bg-[#0f172a] hover:shadow-[0_8px_20px_rgba(246,176,52,0.3)] transition-all flex items-center gap-2 relative overflow-hidden group/btn"
                         >
-                            <DocumentChartBarIcon className="w-5 h-5" />
-                            Generar Informe Final
+                            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#f6b034]/0 via-[#f6b034]/20 to-[#f6b034]/0 -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]"></span>
+                            <DocumentChartBarIcon className="w-5 h-5 text-[#f6b034]" />
+                            <span className="relative z-10 text-[#f6b034]">Descargar Master PDF</span>
                         </button>
                     </div>
                 </div>

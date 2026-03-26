@@ -1,0 +1,373 @@
+{
+  "name": "R3Bot IA Conversacional (n8n)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat-agendamiento",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Webhook (Chat)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "webhookId": "chat-agendamiento"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.message }}",
+        "options": {
+          "systemMessage": "Eres R3Bot, el asesor experto de R3 Consultores. \nMisión: Mantener una charla fluida, empática y MUY humana para ayudar al cliente y sutilmente conseguir estos 4 datos: Nombre, Teléfono, Correo y Motivo puntual de la consulta.\n\nReglas Vitales:\n- NUNCA hables como un cuestionario rígido. Adapta tus respuestas al problema del usuario.\n- Si el cliente te explica su requerimiento, demuestra que lo entendiste en una línea corta antes de pedirle suavemente su nombre o su correo.\n- Pide SOLO UN dato a la vez. No arrojes listas de preguntas.\n- NUNCA pidas fecha ni hora. Diles que tú mismo les abrirás en pantalla el calendario en cuanto tengan todo listo.\n\nEL DETONADOR DEL CALENDARIO:\nApenas te asegures de tener los 4 datos en tu memoria, despídete de forma súper breve, diles que escojan la hora y escribe EXACTAMENTE esta instrucción de código en tu texto (el sistema web la usará):\n[REQUEST_DATE]\n\nFIN DEL CHAT Y DELEGACIÓN:\nSolo cuando el usuario envíe un mensaje que comience por la instrucción \"[DATE_SELECTED]\", significa que ya eligió hora en la web. Desde este punto, tu única y exclusiva respuesta será un objeto JSON crudo juntando lo que recuerdes, con estas llaves exactas: \"nombre\", \"telefono\", \"email\", \"motivo_consulta\", y \"fecha_propuesta\"."
+        }
+      },
+      "id": "2",
+      "name": "Agente IA (R3Bot)",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-1.5-pro"
+      },
+      "id": "3",
+      "name": "Google Gemini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "sessionIdKey": "={{ $json.body.sessionId }}"
+      },
+      "id": "4",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1,
+      "position": [400, 500]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "df5047ae-cbfc-4504-8b89-281bfe4cc8cd",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "{",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "JSON Detectado (Fin)"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "df5047ae-cbfc-4504-8b89-281bfe4cc8cb",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "isEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Conversación Normal"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": 1
+        }
+      },
+      "id": "5",
+      "name": "Switch (Verifica JSON)",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ { \"reply\": $node[\"Agente IA (R3Bot)\"].json.output } }}"
+      },
+      "id": "6",
+      "name": "Respond Webhook (Chat)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const parsed = JSON.parse($input.item.json.output);\n\n// ── Convertir fecha_propuesta a RFC3339 con offset Colombia (-05:00) ──\nconst raw = parsed.fecha_propuesta;\nlet d;\n\nif (raw.includes('-05:00')) {\n  d = new Date(raw);\n} else if (raw.includes('+00:00') || raw.endsWith('Z')) {\n  d = new Date(raw);\n} else {\n  d = new Date(raw + '-05:00');\n}\n\nfunction toColombiaRFC3339(date) {\n  const offset = -5 * 60 * 60 * 1000;\n  const col = new Date(date.getTime() + offset);\n  const y = col.getUTCFullYear();\n  const m = String(col.getUTCMonth() + 1).padStart(2, '0');\n  const dd = String(col.getUTCDate()).padStart(2, '0');\n  const hh = String(col.getUTCHours()).padStart(2, '0');\n  const mm = String(col.getUTCMinutes()).padStart(2, '0');\n  return `${y}-${m}-${dd}T${hh}:${mm}:00-05:00`;\n}\n\nconst startColombia = toColombiaRFC3339(d);\nconst endColombia = toColombiaRFC3339(new Date(d.getTime() + 2 * 60 * 60 * 1000));\n\n// Formatear fecha legible para los correos\nconst diasSemana = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];\nconst meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];\nconst colDate = new Date(d.getTime() + (-5 * 60 * 60 * 1000));\nconst fechaLegible = `${diasSemana[colDate.getUTCDay()]} ${colDate.getUTCDate()} de ${meses[colDate.getUTCMonth()]} de ${colDate.getUTCFullYear()}`;\nconst horaInicio = `${String(colDate.getUTCHours()).padStart(2,'0')}:${String(colDate.getUTCMinutes()).padStart(2,'0')}`;\nconst horaFin = `${String(colDate.getUTCHours() + 2).padStart(2,'0')}:${String(colDate.getUTCMinutes()).padStart(2,'0')}`;\n\nreturn {\n  nombre: parsed.nombre,\n  telefono: parsed.telefono,\n  email: parsed.email,\n  motivo_consulta: parsed.motivo_consulta,\n  fecha_propuesta: parsed.fecha_propuesta,\n  categoria_servicio: parsed.categoria_servicio || 'Consultoría General',\n  nivel_urgencia: parsed.nivel_urgencia || 'Normal',\n  start_colombia: startColombia,\n  end_colombia: endColombia,\n  fecha_legible: fechaLegible,\n  hora_inicio: horaInicio,\n  hora_fin: horaFin\n};"
+      },
+      "id": "7",
+      "name": "Parsear JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 150]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ { \"reply\": \"✅ ¡Perfecto! He recibido todos tus requerimientos y he agendado tu cita exitosamente. Recibirás un correo electrónico de confirmación con los siguientes pasos en unos minutos.\" } }}"
+      },
+      "id": "12",
+      "name": "Respond Webhook (Éxito)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 0]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": "clientes",
+        "columns": "nombre_completo,telefono,email,nombre_empresa",
+        "data": "={{ { \"nombre_completo\": $json.nombre, \"telefono\": $json.telefono, \"email\": $json.email, \"nombre_empresa\": \"No especificada\" } }}"
+      },
+      "id": "8",
+      "name": "Supabase (Crear Cliente)",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1050, 150]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": "citas",
+        "columns": "cliente_id,fecha_hora_propuesta,motivo_consulta,resumen_ia_necesidad,estado",
+        "data": "={{ { \"cliente_id\": $json.data[0].id, \"fecha_hora_propuesta\": $node[\"Parsear JSON\"].json.start_colombia, \"resumen_ia_necesidad\": $node[\"Parsear JSON\"].json.motivo_consulta, \"motivo_consulta\": $node[\"Parsear JSON\"].json.categoria_servicio, \"estado\": \"pendiente\" } }}"
+      },
+      "id": "9",
+      "name": "Supabase (Crear Cita)",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1250, 150]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "calendar": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "summary": "=Consulta R3 - {{$node[\"Parsear JSON\"].json.nombre}}",
+        "description": "=Motivo: {{$node[\"Parsear JSON\"].json.motivo_consulta}}\n\nDatos de contacto:\n• Teléfono: {{$node[\"Parsear JSON\"].json.telefono}}\n• Email: {{$node[\"Parsear JSON\"].json.email}}\n\nCategoría: {{$node[\"Parsear JSON\"].json.categoria_servicio}}\nUrgencia: {{$node[\"Parsear JSON\"].json.nivel_urgencia}}",
+        "start": "={{$node[\"Parsear JSON\"].json.start_colombia}}",
+        "end": "={{$node[\"Parsear JSON\"].json.end_colombia}}",
+        "additionalFields": {
+          "attendees": [
+            "={{$node[\"Parsear JSON\"].json.email}}",
+            "juancamilloloretanoz@gmail.com"
+          ],
+          "conferenceDataUi": {
+            "conferenceDataValues": {
+              "conferenceDataVersion": 1
+            }
+          },
+          "remindersUi": {
+            "remindersValues": {
+              "useDefault": false,
+              "overridesUi": {
+                "overridesValues": [
+                  {
+                    "method": "popup",
+                    "minutes": 30
+                  },
+                  {
+                    "method": "email",
+                    "minutes": 60
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "id": "13",
+      "name": "Google Calendar (Agendar)",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [1450, 150]
+    },
+    {
+      "parameters": {
+        "sendTo": "info@r3consultores.com",
+        "subject": "=🚨 Nueva Cita Agendada: {{$node[\"Parsear JSON\"].json.nombre}} — {{$node[\"Parsear JSON\"].json.fecha_legible}}",
+        "message": "=<div style=\"font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden\">\n  <div style=\"background:linear-gradient(135deg,#1e293b 0%,#334155 100%);padding:30px 40px;text-align:center\">\n    <div style=\"display:inline-block;background:#f6b034;color:#1e293b;font-weight:900;font-size:24px;width:56px;height:56px;line-height:56px;border-radius:50%;text-align:center;margin-bottom:12px\">R3</div>\n    <h1 style=\"color:#ffffff;font-size:20px;margin:8px 0 4px;font-weight:700\">Nueva Cita Agendada</h1>\n    <p style=\"color:#94a3b8;font-size:13px;margin:0\">Chatbot IA · Agendamiento Automático</p>\n  </div>\n\n  <div style=\"padding:30px 40px\">\n    <div style=\"background:#fefce8;border:1px solid #fde68a;border-radius:12px;padding:20px;margin-bottom:24px;text-align:center\">\n      <p style=\"margin:0 0 4px;font-size:12px;color:#92400e;font-weight:600;text-transform:uppercase;letter-spacing:1px\">📅 Fecha de la Cita</p>\n      <p style=\"margin:0;font-size:18px;color:#1e293b;font-weight:700\">{{$node[\"Parsear JSON\"].json.fecha_legible}}</p>\n      <p style=\"margin:4px 0 0;font-size:14px;color:#64748b\">{{$node[\"Parsear JSON\"].json.hora_inicio}} — {{$node[\"Parsear JSON\"].json.hora_fin}} (Hora Colombia)</p>\n    </div>\n\n    <table style=\"width:100%;border-collapse:collapse;margin-bottom:24px\">\n      <tr>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;text-transform:uppercase;font-weight:600;width:120px\">Cliente</td>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b;font-weight:600\">{{$node[\"Parsear JSON\"].json.nombre}}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;text-transform:uppercase;font-weight:600\">Teléfono</td>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b\">{{$node[\"Parsear JSON\"].json.telefono}}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;text-transform:uppercase;font-weight:600\">Email</td>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b\"><a href=\"mailto:{{$node[\"Parsear JSON\"].json.email}}\" style=\"color:#2563eb;text-decoration:none\">{{$node[\"Parsear JSON\"].json.email}}</a></td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;text-transform:uppercase;font-weight:600\">Categoría</td>\n        <td style=\"padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b\">{{$node[\"Parsear JSON\"].json.categoria_servicio}}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 16px;font-size:12px;color:#94a3b8;text-transform:uppercase;font-weight:600\">Urgencia</td>\n        <td style=\"padding:12px 16px;font-size:14px;color:#1e293b\">{{$node[\"Parsear JSON\"].json.nivel_urgencia}}</td>\n      </tr>\n    </table>\n\n    <div style=\"background:#f8fafc;border-radius:12px;padding:16px 20px;margin-bottom:24px\">\n      <p style=\"margin:0 0 8px;font-size:12px;color:#94a3b8;font-weight:600;text-transform:uppercase\">💬 Motivo de la Consulta</p>\n      <p style=\"margin:0;font-size:14px;color:#334155;line-height:1.6\">{{$node[\"Parsear JSON\"].json.motivo_consulta}}</p>\n    </div>\n\n    <p style=\"font-size:12px;color:#94a3b8;text-align:center;margin:0\">Se ha enviado invitación de Google Calendar con enlace de Google Meet al cliente.</p>\n  </div>\n\n  <div style=\"background:#f8fafc;border-top:1px solid #e2e8f0;padding:16px 40px;text-align:center\">\n    <p style=\"margin:0;font-size:11px;color:#94a3b8\">R3 Consultores · Asesoría Contable, Legal y Financiera</p>\n    <p style=\"margin:4px 0 0;font-size:11px;color:#cbd5e1\">Este correo fue generado automáticamente por R3Bot IA</p>\n  </div>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "10",
+      "name": "Gmail (Alerta a Info)",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [1650, 50]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$node[\"Parsear JSON\"].json.email}}",
+        "subject": "=✅ Cita Confirmada — {{$node[\"Parsear JSON\"].json.fecha_legible}} · R3 Consultores",
+        "message": "=<div style=\"font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden\">\n  <div style=\"background:linear-gradient(135deg,#1e293b 0%,#334155 100%);padding:30px 40px;text-align:center\">\n    <div style=\"display:inline-block;background:#f6b034;color:#1e293b;font-weight:900;font-size:24px;width:56px;height:56px;line-height:56px;border-radius:50%;text-align:center;margin-bottom:12px\">R3</div>\n    <h1 style=\"color:#ffffff;font-size:20px;margin:8px 0 4px;font-weight:700\">¡Cita Confirmada!</h1>\n    <p style=\"color:#94a3b8;font-size:13px;margin:0\">R3 Consultores · Asesoría Contable, Legal y Financiera</p>\n  </div>\n\n  <div style=\"padding:30px 40px\">\n    <p style=\"font-size:15px;color:#334155;line-height:1.7;margin:0 0 24px\">Hola <strong>{{$node[\"Parsear JSON\"].json.nombre}}</strong>,</p>\n    <p style=\"font-size:15px;color:#334155;line-height:1.7;margin:0 0 24px\">¡Gracias por confiar en R3 Consultores! Tu cita ha sido agendada exitosamente.</p>\n\n    <div style=\"background:linear-gradient(135deg,#1e293b 0%,#334155 100%);border-radius:12px;padding:24px;margin-bottom:24px;text-align:center\">\n      <p style=\"margin:0 0 4px;font-size:11px;color:#f6b034;font-weight:700;text-transform:uppercase;letter-spacing:2px\">📅 Tu Cita</p>\n      <p style=\"margin:0 0 4px;font-size:20px;color:#ffffff;font-weight:700\">{{$node[\"Parsear JSON\"].json.fecha_legible}}</p>\n      <p style=\"margin:0;font-size:16px;color:#f6b034;font-weight:600\">{{$node[\"Parsear JSON\"].json.hora_inicio}} — {{$node[\"Parsear JSON\"].json.hora_fin}}</p>\n      <p style=\"margin:8px 0 0;font-size:12px;color:#94a3b8\">Hora Colombia (UTC-5)</p>\n    </div>\n\n    <div style=\"background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px 20px;margin-bottom:24px\">\n      <p style=\"margin:0;font-size:14px;color:#166534\"><strong>📩 Invitación de Google Calendar</strong></p>\n      <p style=\"margin:6px 0 0;font-size:13px;color:#15803d;line-height:1.5\">Recibirás una invitación de Google Calendar con un enlace de <strong>Google Meet</strong> para tu reunión virtual. Acéptala para que aparezca en tu calendario.</p>\n    </div>\n\n    <div style=\"background:#f8fafc;border-radius:12px;padding:16px 20px;margin-bottom:24px\">\n      <p style=\"margin:0 0 12px;font-size:12px;color:#94a3b8;font-weight:600;text-transform:uppercase\">🔖 Resumen de tu consulta</p>\n      <p style=\"margin:0;font-size:14px;color:#334155;line-height:1.6\">{{$node[\"Parsear JSON\"].json.motivo_consulta}}</p>\n    </div>\n\n    <table style=\"width:100%;border-collapse:collapse;margin-bottom:24px\">\n      <tr>\n        <td style=\"padding:10px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;font-weight:600\">Modalidad</td>\n        <td style=\"padding:10px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b\">Virtual (Google Meet)</td>\n      </tr>\n      <tr>\n        <td style=\"padding:10px 16px;border-bottom:1px solid #f1f5f9;font-size:12px;color:#94a3b8;font-weight:600\">Duración</td>\n        <td style=\"padding:10px 16px;border-bottom:1px solid #f1f5f9;font-size:14px;color:#1e293b\">2 horas</td>\n      </tr>\n      <tr>\n        <td style=\"padding:10px 16px;font-size:12px;color:#94a3b8;font-weight:600\">Categoría</td>\n        <td style=\"padding:10px 16px;font-size:14px;color:#1e293b\">{{$node[\"Parsear JSON\"].json.categoria_servicio}}</td>\n      </tr>\n    </table>\n\n    <div style=\"text-align:center;margin-bottom:24px\">\n      <a href=\"https://r3consultores.com\" style=\"display:inline-block;background:#f6b034;color:#1e293b;text-decoration:none;padding:12px 32px;border-radius:8px;font-weight:700;font-size:14px\">Visitar r3consultores.com</a>\n    </div>\n\n    <p style=\"font-size:13px;color:#64748b;line-height:1.6;margin:0\">Si necesitas reagendar o cancelar, responde a este correo o contáctanos por WhatsApp al <strong>+57 300 4046628</strong>.</p>\n  </div>\n\n  <div style=\"background:#1e293b;padding:20px 40px;text-align:center\">\n    <p style=\"margin:0 0 4px;font-size:11px;color:#f6b034;font-weight:600\">R3 CONSULTORES S.A.S.</p>\n    <p style=\"margin:0 0 8px;font-size:11px;color:#94a3b8\">Asesoría Contable, Legal y Financiera</p>\n    <p style=\"margin:0;font-size:10px;color:#475569\">info@r3consultores.com · +57 300 4046628 · r3consultores.com</p>\n  </div>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "11",
+      "name": "Gmail (Confirmación Cliente)",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2,
+      "position": [1650, 250]
+    }
+  ],
+  "connections": {
+    "Webhook (Chat)": {
+      "main": [
+        [
+          {
+            "node": "Agente IA (R3Bot)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente IA (R3Bot)",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente IA (R3Bot)",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente IA (R3Bot)": {
+      "main": [
+        [
+          {
+            "node": "Switch (Verifica JSON)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch (Verifica JSON)": {
+      "main": [
+        [
+          {
+            "node": "Parsear JSON",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond Webhook (Chat)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear JSON": {
+      "main": [
+        [
+          {
+            "node": "Supabase (Crear Cliente)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond Webhook (Éxito)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase (Crear Cliente)": {
+      "main": [
+        [
+          {
+            "node": "Supabase (Crear Cita)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase (Crear Cita)": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar (Agendar)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar (Agendar)": {
+      "main": [
+        [
+          {
+            "node": "Gmail (Alerta a Info)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail (Confirmación Cliente)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

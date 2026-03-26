@@ -1,0 +1,106 @@
+{
+  "name": "R3Bot - Verificar Disponibilidad",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "disponibilidad",
+        "responseMode": "lastNode",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        }
+      },
+      "id": "d1",
+      "name": "Webhook (Disponibilidad)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "webhookId": "disponibilidad"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "returnAll": true,
+        "options": {
+          "timeMin": "={{ $json.query.date + 'T00:00:00-05:00' }}",
+          "timeMax": "={{ $json.query.date + 'T23:59:59-05:00' }}"
+        }
+      },
+      "id": "d2",
+      "name": "Google Calendar (Leer Eventos)",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recoger todos los eventos del día y extraer las horas ocupadas\nconst items = $input.all();\nconst FIXED_BLOCKS = ['08:00', '10:00', '14:00', '15:00'];\nconst occupied = [];\n\nfor (const item of items) {\n  const ev = item.json;\n  if (!ev.start) continue;\n  \n  const startStr = ev.start.dateTime || ev.start.date;\n  if (!startStr) continue;\n  \n  const startDate = new Date(startStr);\n  const endStr = ev.end?.dateTime || ev.end?.date;\n  const endDate = endStr ? new Date(endStr) : new Date(startDate.getTime() + 60*60*1000);\n  \n  // Obtener la fecha base del query para construir bloques\n  const queryDate = $node['Webhook (Disponibilidad)'].json.query.date; // YYYY-MM-DD\n  \n  for (const block of FIXED_BLOCKS) {\n    const [bh, bm] = block.split(':').map(Number);\n    // Construir bloque en hora Colombia (UTC-5)\n    const blockStartStr = `${queryDate}T${block}:00-05:00`;\n    const blockStart = new Date(blockStartStr);\n    const blockEnd = new Date(blockStart.getTime() + 2 * 60 * 60 * 1000);\n    \n    // Solapamiento: eventStart < blockEnd AND eventEnd > blockStart\n    if (startDate < blockEnd && endDate > blockStart) {\n      if (!occupied.includes(block)) {\n        occupied.push(block);\n      }\n    }\n  }\n}\n\nreturn { occupied_slots: occupied };"
+      },
+      "id": "d3",
+      "name": "Extraer Horarios Ocupados",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [550, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ $json }}"
+      },
+      "id": "d4",
+      "name": "Respond Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Webhook (Disponibilidad)": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar (Leer Eventos)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar (Leer Eventos)": {
+      "main": [
+        [
+          {
+            "node": "Extraer Horarios Ocupados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer Horarios Ocupados": {
+      "main": [
+        [
+          {
+            "node": "Respond Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

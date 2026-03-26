@@ -1,5 +1,5 @@
 
-export type Module = 'dashboard' | 'contable' | 'iva' | 'retenciones' | 'informe' | 'clients' | 'tasks' | 'calendar' | 'historial' | 'proyecciones-iva' | 'proyecciones-portfolio' | 'configuracion';
+export type Module = 'dashboard' | 'contable' | 'iva' | 'retenciones' | 'informe' | 'clients' | 'tasks' | 'calendar' | 'historial' | 'proyecciones-iva' | 'proyecciones-portfolio' | 'ica-anual' | 'configuracion';
 
 export type FileType = 'auxiliar' | 'compras' | 'ventas' | 'dian' | 'validacion' | 'retencion_base' | 'iva_auxiliar' | 'iva_dian' | 'retencion_auxiliar' | 'retencion_compras' | 'retencion_ventas';
 

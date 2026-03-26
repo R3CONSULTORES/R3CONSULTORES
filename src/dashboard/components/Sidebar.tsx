@@ -11,9 +11,9 @@ interface SidebarProps {
     onLogout: () => void;
 }
 
-// URLs de logos
-const logoIconUrl = 'https://firebasestorage.googleapis.com/v0/b/revision-contable.firebasestorage.app/o/icono%20sin%20fondo%20en%20amarillo.png?alt=media&token=e11d5ce5-0832-4272-828f-2ba6d3623c4f';
-const logoFullUrl = 'https://firebasestorage.googleapis.com/v0/b/revision-contable.firebasestorage.app/o/logo%20sin%20fondo%20a%20color%20amarillo.png?alt=media&token=1b6f8d8d-4a2a-4f0a-9bff-882866521db8';
+// URLs de logos estáticos locales
+const logoIconUrl = '/assets/icono-amarillo.png';  // Ícono cuadrado colapsado (amarillo)
+const logoFullUrl = '/assets/logo-amarillo.png';   // Logo expandido (amarillo — visible sobre fondo oscuro)
 
 // --- CSS FILTERS FOR <img> ICONS ONLY ---
 // These only work correctly on <img> elements (raster/external PNGs), NOT on inline SVGs.
@@ -62,16 +62,17 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                     flex items-center w-full p-3 mb-1 text-left transition-all duration-300 ease-out
                     group relative overflow-hidden rounded-xl mx-auto
                     ${isActive
-                        ? 'bg-[#f6b034]/10 text-[#f6b034] shadow-[inset_4px_0_0_0_#f6b034]'
-                        : 'text-white hover:bg-white/5'}
+                        ? 'bg-white/10 text-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] border border-white/5'
+                        : 'text-[#e5e9ea] hover:bg-white/5'}
                      ${!isExpanded && !isMobile ? 'justify-center w-12 px-0' : 'w-[90%] pl-4'}
                 `}
                 title={title}
             >
                 <span className={`
                     flex-shrink-0 w-6 h-6 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]
+                    text-[#f6b034]
                     ${isActive ? 'scale-110' : 'group-hover:scale-105'}
-                    ${imgFilter}
+                    ${isImgIcon ? IMG_FILTER_AMBER : ''}
                 `}>
                     {children}
                 </span>
@@ -105,8 +106,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule, isOpen
                 className={`
                     fixed lg:sticky top-0 left-0 z-40
                     h-[calc(100vh-2rem)] m-4 
-                    bg-[#1e293b] 
-                    rounded-3xl shadow-2xl shadow-gray-900/20
+                    bg-[#0f172a] 
+                    rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]
                     flex flex-col flex-shrink-0 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]
                     ${isOpen ? 'translate-x-0' : '-translate-x-[120%] lg:translate-x-0'}
                     ${isDesktopExpanded ? 'lg:w-72' : 'lg:w-24'}

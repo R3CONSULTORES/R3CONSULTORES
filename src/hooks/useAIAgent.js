@@ -72,7 +72,10 @@ export function useAIAgent() {
 
   const handleDateSelection = (dateStr, timeStr) => {
     setShowCalendar(false);
-    const confirmText = `[DATE_SELECTED] ${dateStr} ${timeStr}`;
+    // Enviar en formato ISO con offset Colombia (-05:00) para que n8n
+    // lo envíe correctamente a Google Calendar
+    const isoDateTime = `${dateStr}T${timeStr}:00-05:00`;
+    const confirmText = `[DATE_SELECTED] ${isoDateTime}`;
     processResponse(confirmText);
   };
 

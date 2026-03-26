@@ -13,7 +13,7 @@ interface AddClientModalProps {
     clientToEdit?: Partial<Client> | null;
 }
 
-const inputBaseClasses = "w-full px-3 py-2 border rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 text-sm bg-white text-slate-900 placeholder-slate-400";
+const inputBaseClasses = "w-full px-3 py-2 border rounded-md shadow-sm focus:ring-[#f6b034] focus:border-[#f6b034] text-sm bg-white/10 text-white placeholder-slate-400 border-white/20";
 
 const toTitleCase = (str: string): string => {
     return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -25,8 +25,8 @@ const CheckboxField = ({ label, checked, onChange }: { label: string; checked: b
             type="checkbox"
             checked={checked}
             onChange={(e) => onChange(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-slate-800 focus:ring-slate-500" />
-        <label className="ml-2 text-sm text-slate-700">{label}</label>
+            className="h-4 w-4 rounded border-white/20 bg-white/10 text-[#f6b034] focus:ring-[#f6b034]" />
+        <label className="ml-2 text-sm text-[#e5e9ea]">{label}</label>
     </div>
 );
 
@@ -216,19 +216,19 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
     };
 
     return (
-        <div className="fixed inset-0 bg-slate-900/20 backdrop-blur-md flex items-center justify-center z-40 p-4" onClick={onClose}>
-            <div className="bg-white rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] w-full max-w-4xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
-                <header className="flex justify-between items-center p-5 border-b border-slate-200">
-                    <h2 className="text-2xl font-bold text-slate-800">{isEditing ? 'Editar Cliente' : 'Agregar Nuevo Cliente'}</h2>
-                    <button onClick={onClose} className="p-1 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors">
+        <div className="fixed inset-0 bg-[#0f172a]/80 backdrop-blur-md flex items-center justify-center z-40 p-4" onClick={onClose}>
+            <div className="bg-[#1e293b]/50 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] w-full max-w-4xl max-h-[95vh] flex flex-col" onClick={e => e.stopPropagation()}>
+                <header className="flex justify-between items-center p-5 border-b border-white/10">
+                    <h2 className="text-2xl font-bold text-white">{isEditing ? 'Editar Cliente' : 'Agregar Nuevo Cliente'}</h2>
+                    <button onClick={onClose} className="p-1 rounded-full text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
                         <XMarkIcon className="w-6 h-6" />
                     </button>
                 </header>
 
-                <main className="p-6 overflow-y-auto">
+                <main className="p-6 overflow-y-auto custom-scrollbar-dark">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
                         <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Tipo de Persona</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Tipo de Persona</label>
                             <select name="tipoPersona" value={formData.tipoPersona} onChange={handleInputChange} className={`${inputBaseClasses} border-slate-300`}>
                                 <option>Persona Jurídica</option>
                                 <option>Persona Natural</option>
@@ -239,22 +239,22 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         {formData.tipoPersona === 'Persona Jurídica' ? (
                             <>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">Razón Social</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Razón Social</label>
                                     <input type="text" name="razonSocial" placeholder="Ej: MI EMPRESA S.A.S" value={formData.razonSocial} onChange={handleRazonSocialChange} className={`${inputBaseClasses} border-slate-300`} />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">NIT</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">NIT</label>
                                     <div className="flex">
                                         <input type="text" name="nit" placeholder="900123456" value={formData.nit} onChange={handleIdChange} className={`${inputBaseClasses} rounded-r-none border-r-0 border-slate-300`} />
                                         <span className="inline-flex items-center px-3 border border-slate-300 bg-slate-50 text-slate-500 text-sm rounded-r-md">{formData.nitDv || 'DV'}</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">Representante Legal</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Representante Legal</label>
                                     <input type="text" name="representanteLegal" placeholder="Ej: Juan Camilo Retamozo Pertuz" value={formData.representanteLegal} onChange={handleRepLegalChange} className={`${inputBaseClasses} border-slate-300`} />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">Cédula del Rep. Legal</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Cédula del Rep. Legal</label>
                                     <div className="flex">
                                         <input type="text" name="cedulaRepLegal" placeholder="1082123456" value={formData.cedulaRepLegal} onChange={handleIdChange} className={`${inputBaseClasses} rounded-r-none border-r-0 border-slate-300`} />
                                         <span className="inline-flex items-center px-3 border border-slate-300 bg-slate-50 text-slate-500 text-sm rounded-r-md">{formData.cedulaRepLegalDv || 'DV'}</span>
@@ -264,11 +264,11 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         ) : (
                              <>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">Nombre Completo</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Nombre Completo</label>
                                     <input type="text" name="nombreCompleto" placeholder="Ej: Juan Camilo Retamozo Pertuz" value={formData.nombreCompleto} onChange={handleRazonSocialChange} className={`${inputBaseClasses} border-slate-300`} />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-600 mb-1">Cédula</label>
+                                    <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Cédula</label>
                                     <div className="flex">
                                         <input type="text" name="cedula" placeholder="1082123456" value={formData.cedula} onChange={handleIdChange} className={`${inputBaseClasses} rounded-r-none border-r-0 border-slate-300`} />
                                         <span className="inline-flex items-center px-3 border border-slate-300 bg-slate-50 text-slate-500 text-sm rounded-r-md">{formData.cedulaDv || 'DV'}</span>
@@ -279,12 +279,12 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
 
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Dirección</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Dirección</label>
                              <input type="text" name="direccion" placeholder="Ej: Calle 100 # 20-30" value={formData.direccion} onChange={handleInputChange} className={`${inputBaseClasses} border-slate-300`} />
                         </div>
                        
                         <div>
-                             <label className="block text-sm font-medium text-slate-600 mb-1">Departamento</label>
+                             <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Departamento</label>
                              <input list="departamentos-list" name="departamento" placeholder="Escriba para buscar..." value={formData.departamento} onChange={handleDepartamentoChange} className={`${inputBaseClasses} border-slate-300`} />
                              <datalist id="departamentos-list">
                                 {Object.keys(colombiaData).map(dep => <option key={dep} value={dep} />)}
@@ -292,7 +292,7 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Municipio</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Municipio</label>
                             <input list="municipios-list" name="municipio" placeholder="Seleccione un departamento primero" value={formData.municipio} onChange={handleInputChange} disabled={municipios.length === 0} className={`${inputBaseClasses} disabled:bg-slate-100 disabled:cursor-not-allowed border-slate-300`} />
                             <datalist id="municipios-list">
                                 {municipios.map(mun => <option key={mun} value={mun} />)}
@@ -300,43 +300,43 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         </div>
                         
                         <div>
-                           <label className="block text-sm font-medium text-slate-600 mb-1">Tipo de Contribuyente</label>
+                           <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Tipo de Contribuyente</label>
                            <select name="tipoContribuyente" value={formData.tipoContribuyente} onChange={handleInputChange} className={`${inputBaseClasses} border-slate-300`}>
                                {tipoContribuyenteOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                            </select>
                         </div>
                         
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-slate-600">E-mail(s)</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea]">E-mail(s)</label>
                             {emails.map((email, index) => (
                                 <div key={index} className="flex items-center gap-2">
                                     <input type="email" placeholder="ejemplo@correo.com" value={email} onChange={(e) => handleDynamicListChange(setEmails, index, e.target.value)} className={`${inputBaseClasses} border-slate-300`} />
                                     {emails.length > 1 && <button type="button" onClick={() => removeDynamicListItem(setEmails, index)} className="p-1 text-red-500 hover:text-red-700"><XMarkIcon /></button>}
                                 </div>
                             ))}
-                            <button type="button" onClick={() => addDynamicListItem(setEmails)} className="text-sm text-slate-800 font-semibold hover:text-amber-600 flex items-center gap-1"><PlusIcon className="w-4 h-4" />Agregar nuevo</button>
+                            <button type="button" onClick={() => addDynamicListItem(setEmails)} className="text-sm text-white font-semibold hover:text-amber-600 flex items-center gap-1"><PlusIcon className="w-4 h-4" />Agregar nuevo</button>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="block text-sm font-medium text-slate-600">Celular(es)</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea]">Celular(es)</label>
                             {celulares.map((celular, index) => (
                                 <div key={index} className="flex items-center gap-2">
                                     <input type="tel" placeholder="3001234567" value={celular} onChange={(e) => handleDynamicListChange(setCelulares, index, e.target.value)} className={`${inputBaseClasses} border-slate-300`} />
                                     {celulares.length > 1 && <button type="button" onClick={() => removeDynamicListItem(setCelulares, index)} className="p-1 text-red-500 hover:text-red-700"><XMarkIcon /></button>}
                                 </div>
                             ))}
-                            <button type="button" onClick={() => addDynamicListItem(setCelulares)} className="text-sm text-slate-800 font-semibold hover:text-amber-600 flex items-center gap-1"><PlusIcon className="w-4 h-4" />Agregar nuevo</button>
+                            <button type="button" onClick={() => addDynamicListItem(setCelulares)} className="text-sm text-white font-semibold hover:text-amber-600 flex items-center gap-1"><PlusIcon className="w-4 h-4" />Agregar nuevo</button>
                         </div>
 
                          <div ref={ciiuInputRef}>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Código(s) CIIU</label>
+                            <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Código(s) CIIU</label>
                             <div className="relative">
                                 <input type="text" placeholder="Buscar por código o descripción..." value={ciiuSearch} onChange={handleCiiuSearchChange} onFocus={() => ciiuResults.length > 0 && setIsCiiuListOpen(true)} className={`${inputBaseClasses} border-slate-300`} />
                                 {isCiiuListOpen && ciiuResults.length > 0 && (
                                     <ul className="absolute z-10 w-full bg-white border border-slate-300 rounded-md shadow-lg mt-1 max-h-48 overflow-y-auto">
                                         {ciiuResults.map(ciiu => (
                                             <li key={ciiu.code} onClick={() => handleSelectCiiu(ciiu)} className="p-2 text-sm hover:bg-slate-100 cursor-pointer">
-                                                <strong className="text-slate-800">{ciiu.code}</strong> - <span className="text-slate-600">{ciiu.description}</span>
+                                                <strong className="text-white">{ciiu.code}</strong> - <span className="text-[#e5e9ea]">{ciiu.description}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -344,9 +344,9 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                             </div>
                              <div className="mt-2 flex flex-wrap gap-2">
                                 {selectedCiius.map(ciiu => (
-                                    <span key={ciiu.code} className="bg-slate-200 text-slate-800 text-xs font-semibold px-2 py-1 rounded-md flex items-center gap-2 max-w-full" title={ciiu.description}>
+                                    <span key={ciiu.code} className="bg-slate-200 text-white text-xs font-semibold px-2 py-1 rounded-md flex items-center gap-2 max-w-full" title={ciiu.description}>
                                         <span className="truncate">{ciiu.code} - {ciiu.description}</span>
-                                        <button type="button" onClick={() => handleRemoveCiiu(ciiu.code)} className="text-slate-500 hover:text-slate-800 flex-shrink-0">
+                                        <button type="button" onClick={() => handleRemoveCiiu(ciiu.code)} className="text-slate-500 hover:text-white flex-shrink-0">
                                             <XMarkIcon className="w-3 h-3" />
                                         </button>
                                     </span>
@@ -355,7 +355,7 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                         </div>
 
                         <div>
-                             <label className="block text-sm font-medium text-slate-600 mb-1">Clave Portal <span className="text-red-500">*</span></label>
+                             <label className="block text-sm font-medium text-[#e5e9ea] mb-1">Clave Portal <span className="text-red-500">*</span></label>
                              <input type="text" name="clavePortal" placeholder="Clave alfanumérica" value={formData.clavePortal} onChange={handleInputChange} className={`${inputBaseClasses} border-slate-300`} />
                         </div>
                     </div>
@@ -363,10 +363,10 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                     <hr className="my-8" />
 
                     <div>
-                        <h3 className="text-lg font-semibold text-slate-800 mb-4">Responsabilidades Tributarias</h3>
+                        <h3 className="text-lg font-semibold text-white mb-4">Responsabilidades Tributarias</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
-                                <h4 className="font-medium text-slate-700 mb-3">Nacionales</h4>
+                                <h4 className="font-medium text-white mb-3">Nacionales</h4>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
                                     <div className="flex items-center gap-4 col-span-1 sm:col-span-2">
                                         <CheckboxField 
@@ -387,11 +387,11 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                                     </div>
                                     <CheckboxField label="Impuesto al Consumo" checked={responsabilidadesNacionales.consumo} onChange={(c) => handleResponsibilityChange('consumo', c)} />
                                     <CheckboxField label="Retención en la Fuente" checked={responsabilidadesNacionales.rteFte} onChange={(c) => handleResponsibilityChange('rteFte', c)} />
-                                    <div className="col-span-1 sm:col-span-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <div className="col-span-1 sm:col-span-2 bg-white/5 p-3 rounded-lg border border-white/10">
                                         <CheckboxField label="Declaración de Renta" checked={responsabilidadesNacionales.renta} onChange={(c) => handleResponsibilityChange('renta', c)} />
                                         {responsabilidadesNacionales.renta && formData.tipoContribuyente !== 'Régimen Simple' && (
-                                            <div className="ml-6 mt-2 space-y-2 border-l-2 pl-3 border-amber-200">
-                                                <p className="text-xs text-slate-500 mb-1">Seleccione los plazos a generar:</p>
+                                            <div className="ml-6 mt-2 space-y-2 border-l-2 pl-3 border-[#f6b034]/50">
+                                                <p className="text-xs text-[#e5e9ea] opacity-80 mb-1">Seleccione los plazos a generar:</p>
                                                 {(formData.tipoContribuyente === 'Gran Contribuyente' || formData.tipoContribuyente === 'Gran Contribuyente autorretenedor') ? (
                                                     <>
                                                         <CheckboxField label="Cuota 1" checked={responsabilidadesNacionales.cuotasRenta?.cuota1 || false} onChange={(c) => handleResponsibilityChange('cuotasRenta', { ...responsabilidadesNacionales.cuotasRenta, cuota1: c } as any)} />
@@ -420,7 +420,7 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                                 </div>
                             </div>
                             <div>
-                                <h4 className="font-medium text-slate-700 mb-3">Municipales</h4>
+                                <h4 className="font-medium text-white mb-3">Municipales</h4>
                                 <p className="text-sm text-slate-500"> (Próximamente)</p>
                             </div>
                         </div>
@@ -429,15 +429,15 @@ const AddClientModal: React.FC<AddClientModalProps> = ({ onClose, onSave, client
                     <hr className="my-8" />
 
                     <div>
-                         <h3 className="text-lg font-semibold text-slate-800 mb-4">Otras Obligaciones</h3>
+                         <h3 className="text-lg font-semibold text-white mb-4">Otras Obligaciones</h3>
                          <div className="space-y-2">
                             <CheckboxField label="Revisión Mensual" checked={otherObligations.revisionMensual} onChange={(c) => setOtherObligations(p => ({...p, revisionMensual: c}))} />
                          </div>
                     </div>
                 </main>
 
-                <footer className="p-5 bg-slate-50 border-t border-slate-200 text-right">
-                    <button onClick={handleSubmit} className="w-full md:w-auto bg-slate-900 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-slate-700 transition-colors duration-200">
+                <footer className="p-5 bg-white/5 border-t border-white/10 text-right">
+                    <button onClick={handleSubmit} className="w-full md:w-auto bg-[#f6b034] text-[#000000] font-bold py-3 px-8 rounded-lg shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
                         {isEditing ? 'Guardar Cambios' : 'Registrar Cliente'}
                     </button>
                 </footer>

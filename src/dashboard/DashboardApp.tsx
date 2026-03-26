@@ -1,5 +1,4 @@
-
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, Component } from 'react';
 import type { Module, AppState, LoadingState, AppContextType, Client, Task, VatCategory, CompraVatCategory, IvaDescontableCategory, RevisionHistoryItem, SavedProyeccion } from '@/dashboard/types';
 import { AppContext } from '@/dashboard/contexts/AppContext';
 import Sidebar from '@/dashboard/components/Sidebar';
@@ -17,6 +16,43 @@ import { InfoIcon, EyeIcon, EyeSlashIcon } from '@/dashboard/components/Icons';
 import IvaReview from '@/dashboard/views/IvaReview';
 import Login from '@/dashboard/views/Login';
 import ProyeccionesPortfolio from '@/dashboard/views/ProyeccionesPortfolio';
+import IcaAnualView from '@/dashboard/views/ica_anual/IcaAnualView';
+
+interface EBProps { children: React.ReactNode; }
+interface EBState { hasError: boolean; error: Error | null; }
+
+class ErrorBoundary extends React.Component<EBProps, EBState> {
+    public state: EBState = { hasError: false, error: null };
+    
+    static getDerivedStateFromError(error: Error): EBState {
+        return { hasError: true, error };
+    }
+    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        console.error("ErrorBoundary atrapó un error:", error, errorInfo);
+    }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="p-8 flex flex-col items-center justify-center h-full text-center">
+                    <div className="bg-red-50 text-red-600 p-6 rounded-2xl max-w-lg border border-red-200 shadow-sm">
+                        <h2 className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
+                            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                            Fallo en Componente React
+                        </h2>
+                        <p className="mb-4 text-sm font-medium opacity-90">Ocurrió un error inesperado al renderizar la vista.</p>
+                        <pre className="text-xs text-left bg-white/50 p-3 rounded-lg overflow-x-auto text-red-800 border border-red-100">
+                            {this.state.error?.toString() || "Error desconocido"}
+                        </pre>
+                        <button onClick={() => window.location.reload()} className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-md transition-all">
+                            Recargar Dashboard
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+        return (this as any).props.children;
+    }
+}
 
 // --- Notification Toast Component ---
 interface NotificationToastProps {
@@ -887,20 +923,23 @@ const App: React.FC = () => {
                         <div className="w-8"></div> {/* Spacer for centering */}
                     </header>
                     
-                    {activeModule === 'dashboard' && <Dashboard />}
-                    {activeModule === 'contable' && <RevisionWorkspace />}
-                    {/* Redirect legacy keys to workspace if needed */}
-                    {activeModule === 'iva' && <RevisionWorkspace />} 
-                    {activeModule === 'retenciones' && <RevisionWorkspace />}
-                    {activeModule === 'informe' && <RevisionWorkspace />} 
-                    
-                    {activeModule === 'clients' && <Clients />}
-                    {activeModule === 'tasks' && <Tasks />}
-                    {activeModule === 'calendar' && <Calendar />}
-                    {activeModule === 'historial' && <HistorialReview />}
-                    {activeModule === 'proyecciones-iva' && <IvaReview initialTab="proyecciones" />}
-                    {activeModule === 'proyecciones-portfolio' && <ProyeccionesPortfolio />}
-                    {activeModule === 'configuracion' && <Configuracion />}
+                    <ErrorBoundary>
+                        {activeModule === 'dashboard' && <Dashboard />}
+                        {activeModule === 'contable' && <RevisionWorkspace />}
+                        {/* Redirect legacy keys to workspace if needed */}
+                        {activeModule === 'iva' && <RevisionWorkspace />} 
+                        {activeModule === 'retenciones' && <RevisionWorkspace />}
+                        {activeModule === 'informe' && <RevisionWorkspace />} 
+                        
+                        {activeModule === 'clients' && <Clients />}
+                        {activeModule === 'tasks' && <Tasks />}
+                        {activeModule === 'calendar' && <Calendar />}
+                        {activeModule === 'historial' && <HistorialReview />}
+                        {activeModule === 'proyecciones-iva' && <IvaReview initialTab="proyecciones" />}
+                        {activeModule === 'proyecciones-portfolio' && <ProyeccionesPortfolio />}
+                        {activeModule === 'ica-anual' && <IcaAnualView />}
+                        {activeModule === 'configuracion' && <Configuracion />}
+                    </ErrorBoundary>
                 </main>
 
                 {loading.isActive && <LoadingModal message={loading.message} />}

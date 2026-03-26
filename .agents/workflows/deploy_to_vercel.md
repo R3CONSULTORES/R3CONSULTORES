@@ -7,14 +7,11 @@ Esta es la acción oficial para sincronizar el código local con el entorno de p
 
 Paso a paso:
 
-1. Guardar todos los cambios recientes.
-2. Hacer el commit y subir a GitHub (para respaldo).
 // turbo-all
-3. Desplegar a Vercel con la opción --prod.
+1. Desplegar directamente a Vercel con la opción --prod (NO usar GitHub, NO hacer git push).
 ```bash
-git add .
-git commit -m "🚀 Actualización a producción (Despliegue Vercel)"
-git push origin main
 npx vercel --prod
 ```
-4. Notificar al usuario que los cambios se verán reflejados inmediatamente en r3consultores.com.
+2. Notificar al usuario que los cambios se verán reflejados inmediatamente en r3consultores.com.
+
+> ⚠️ NUNCA hacer git push ni deploy via GitHub. El deploy siempre es directo con `npx vercel --prod`.
