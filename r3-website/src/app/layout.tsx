@@ -9,6 +9,10 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "R3 Consultores - Asesoría Contable y Tributaria",
   description: "Firma de contadores públicos en Colombia con experiencia en soluciones contables, tributarias y financieras.",
+  icons: {
+    icon: '/favicon.ico?v=2',
+    apple: '/favicon.png?v=2'
+  },
 };
 
 export const viewport = {
